@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    position: fixed;
+    background-color: black;
+    height: 100px;
+    width: 100%;
+    z-index: 1;
+    padding-left: 5%;
+}
+
+.heading {
+    font-size: 25px;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+    line-height: 30px;
+}
+
+.sub-heading {
+    font-size: 15px;
+    color: lightgray;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+ul {
+    position: absolute;
+    right: 7%;
+    top: 20px;
+}
+
+ul li {
+    display: inline-block;
+    line-height: 40px;
+    margin: 0 5px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.custom-button {
+    background-color: #a19ea3; /* Change the background color */
+    color: #ffffff; /* Change the text color */
+    border: none; /* Remove the default border */
+    padding: 5px 10px; /* Add padding */
+    border-radius: 5px; /* Change border radius for rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.custom-button:hover {
+    background-color: #27b249; /* Change background on hover */
+    color: #ffffff; /* Keep text color white on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
