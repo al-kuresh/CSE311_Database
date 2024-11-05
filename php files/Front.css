@@ -59,3 +59,15 @@ ul li a {
     color: #ffffff; /* Keep text color white on hover */
     text-decoration: none; /* Remove underline on hover */
 }
+
+.Classroom_picture
+{
+    width: 100%;
+    height: 400px;
+}
+
+.Part-1
+{
+    padding-top: 50px;
+}
+
