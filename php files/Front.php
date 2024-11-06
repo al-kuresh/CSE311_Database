@@ -20,8 +20,24 @@
     </nav> 
 
     <div class="Part-1">
-      
       <img class="Classroom_picture" src="Classroom.webp" alt="">
+    </div>
+    
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <img class="logo" src="Logo_of_Sirius.webp">
+        </div>
+
+        <div class="col-md-8">
+        
+
+        </div>
+
+      </div>
+
     </div>
 
   </body>
