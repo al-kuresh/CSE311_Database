@@ -32,8 +32,14 @@
         </div>
 
         <div class="col-md-8">
-        
-
+          <h1>
+            INSTITUTE OVERVIEW:
+          </h1>
+          <P>Our e-learning institute is a modern educational platform designed to deliver quality education across diverse curricula and skill-building courses.
+             We offer comprehensive programs including A Levels, O Levels, SSC, HSC, and specialized courses aimed at enhancing personal and professional skills. 
+             Our institute prides itself on a faculty of experienced and passionate teachers who are dedicated to student success.
+             Each educator is committed to fostering an engaging, interactive learning environment that goes beyond traditional teaching methods.
+          </P> 
         </div>
 
       </div>
