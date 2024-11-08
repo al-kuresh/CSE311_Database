@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Sirius A Learning Platform</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="Front.css">
+    <link rel="stylesheet" type="text/css" href="Css files\Front.css">
 
   <body>
     <nav>
@@ -19,7 +19,7 @@
     </nav> 
 
     <div class="Part-1">
-      <img class="Classroom_picture" src="Classroom_new.jpg" alt="">
+      <img class="Classroom_picture" src="images\Classroom_new.jpg" alt="">
     </div>
     
     <div class="container">
@@ -27,7 +27,7 @@
       <div class="row">
 
         <div class="col-md-4">
-          <img class="logo" src="Logo_of_Sirius.webp">
+          <img class="logo" src="images\Logo_of_Sirius.webp">
         </div>
 
         <div class="col-md-8">
@@ -56,7 +56,7 @@
       <div class="row">
 
         <div class="col-md-4">
-         <img class="Teachers" src="Science_Teacher.jpg">
+         <img class="Teachers" src="images\Science_Teacher.jpg">
          <p>
           Our institution provides top-quality science education for all grade levels, taught by skilled university students from renowned institutions. 
           With modern teaching methods, they make complex subjects like Physics, Chemistry, Biology, and Math engaging and accessible, inspiring students and fostering a strong foundation in science.
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col-md-4">  
-         <img class="Teachers" src="Logic_based.jpg">
+         <img class="Teachers" src="images\Logic_based.jpg">
           <p>
             Our institution offers coding courses led by industry experts, covering essential languages like Python, JavaScript, and more.
             Through hands-on learning and real-world applications, students gain practical skills and confidence for tech careers.
@@ -72,12 +72,13 @@
         </div>
 
         <div class="col-md-4">
-         <img class="Teachers" src="Business_teachers.webp">
+         <img class="Teachers" src="images\Business_teachers.webp">
           <p>
            Our institution offers quality business studies education for all grade levels, taught by skilled varsity students.
            They make subjects like Economics, Accounting, and Management engaging and accessible, building a strong foundation for students in the business field.
           </p>
         </div>
+
 
       </div>
 
