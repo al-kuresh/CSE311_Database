@@ -25,6 +25,8 @@ nav {
     color: lightgray;
     font-weight: bold;
     margin-top: 5px;
+    padding-top: 0px;
+    text-align: left;
 }
 
 ul {
@@ -86,8 +88,8 @@ ul li a {
 }
 .text
 {
-    padding-top: 30px;
-    padding-bottom: 0;
+    padding-top: 50px;
+    padding-bottom: 30px;
    
 }
 .Teachers
@@ -106,9 +108,26 @@ p
     font-family: 'Roboto', sans-serif;
     width: 90%;
     padding-top: 20px;
+    text-align: center;
 }
 
+.Course-Section
+{   
+    padding-top: 0%;
+    text-align: left;
+}
 
+.course-images
+{
+    width: 90%;
+    height: 200px;
+    transition: transform 0.3s ease; 
+}
+
+.course-images:hover
+{
+    transform: scale(1.2); /* Scale the image to 120% on hover */
+}
 
 
 
