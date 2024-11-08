@@ -63,12 +63,12 @@ ul li a {
 .Classroom_picture
 {
     width: 100%;
-    height: 400px;
+    height: 450px;
 }
 
 .Part-1
 {
-    padding-top: 50px;
+    padding-top: 60px;
 }
 
 .logo
@@ -84,5 +84,34 @@ ul li a {
     padding-top: 60px;
     
 }
+.text
+{
+    padding-top: 30px;
+    padding-bottom: 0;
+   
+}
+.Teachers
+{
+    width: 90%;
+    height: 200px;
+    transition: transform 0.3s ease;
+}
+.Teachers:hover
+{
+    transform: scale(1.2); /* Scale the image to 120% on hover */
+}
+
+p
+{
+    font-family: 'Roboto', sans-serif;
+    width: 90%;
+    padding-top: 20px;
+}
+
+
+
+
+
+  
 
 
