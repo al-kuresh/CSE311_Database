@@ -28,11 +28,51 @@
             <div align="center" class="admission-form">
                 <form>
                     <div>
-                        <label>
+                        <label class="label_text">
                             Name
                         </label>
                         <input type="text" name="">
                     </div>
+
+                    <div>
+                        <label class="label_text">
+                            Institute
+                        </label>
+                        <input type="text" name="">
+                    </div>
+
+                    <div>
+                        <label class="label_text">
+                            Email
+                        </label>
+                        <input type="text" name="">
+                    </div>
+
+                    <div>
+                        <label class="label_text">
+                            Class
+                        </label>
+                        <input type="text" name="">
+                    </div>
+
+                    <div>
+                        <label class="label_text">
+                            Phone No
+                        </label>
+                        <input type="text" name="">
+                    </div>
+
+                    <div>
+                        <label class="label_text_A">
+                          Address
+                        </label>
+                        <textarea></textarea>
+                    </div>
+
+                    <div>
+                        <input type="submit">
+                    </div>
+
                 </form>
             </div>
             
