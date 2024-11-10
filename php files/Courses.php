@@ -56,6 +56,43 @@
             </div>
         </div>
 
+        <div class="container">
+            <div class="Course-Section">
+                <h2 class="text">Commerce Course For Class 9-10</h2>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3">
+                    <img class="course-images" src="images\Accounting.webp">
+                    <p>
+                        ACCOUNTING OF CLASS 10
+                    </p>
+                </div>
+
+                <div class="col-md-3">  
+                    <img class="course-images" src="images\Business.webp">
+                    <p>
+                        BUSINESS STUDIES OF CLASS 10
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <img class="course-images" src="images\Entrepreneur.webp">
+                    <p>
+                        ENTREPRENEURSHIP OF CLASS 10
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <img class="course-images" src="images\Finance.webp">
+                    <p>
+                        FINANCE OF CLASS 10
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
 
         <div class="container">
             <div class="Course-Section">
@@ -88,6 +125,44 @@
                     <img class="course-images" src="images\H.math-11.jpg">
                     <p>
                         HIGHER MATH OF CLASS 11
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="Course-Section">
+                <h2 class="text">Commerce Course For Class 11-12</h2>
+            </div>
+            <div class="row">
+
+                <div class="col-md-3">
+                    <img class="course-images" src="images\acc_11.webp">
+                    <p>
+                        ACCOUNTING OF CLASS 11-12
+                    </p>
+                </div>
+
+                <div class="col-md-3">  
+                    <img class="course-images" src="images\Busi_11.webp">
+                    <p>
+                        BUSINESS STUDIES OF CLASS 11-12
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <img class="course-images" src="images\Entre_11.webp">
+                    <p>
+                        ENTREPRENEURSHIP OF CLASS 11-12
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <img class="course-images" src="images\Fin_11.webp">
+                    <p>
+                        FINANCE OF CLASS 11-12
                     </p>
                 </div>
                 
@@ -130,6 +205,12 @@
                 </div>
                 
             </div>
+        </div>
+
+        <div class ="Foot">
+            <footer>
+                All copyright reserved by the Team ASM of CSE311
+            </footer>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

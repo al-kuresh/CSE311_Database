@@ -27,50 +27,51 @@
 
             <div align="center" class="admission-form">
                 <form>
-                    <div>
+                    <div class="inputs">
                         <label class="label_text">
                             Name
                         </label>
-                        <input type="text" name="">
+                        <input class="input_decor" type="text" name="">
                     </div>
 
-                    <div>
+                    <div class="inputs">
                         <label class="label_text">
                             Institute
                         </label>
-                        <input type="text" name="">
+                        <input class="input_decor" type="text" name="">
                     </div>
 
-                    <div>
+                    <div class="inputs">
                         <label class="label_text">
                             Email
                         </label>
-                        <input type="text" name="">
+                        <input class="input_decor" type="text" name="">
                     </div>
 
-                    <div>
+                    <div class="inputs">
                         <label class="label_text">
                             Class
                         </label>
-                        <input type="text" name="">
+                        <input class="input_decor" type="text" name="">
                     </div>
 
-                    <div>
+                    <div class="inputs">
                         <label class="label_text">
                             Phone No
                         </label>
-                        <input type="text" name="">
+                        <input class="input_decor" type="text" name="">
                     </div>
 
-                    <div>
+                    <div class="inputs">
                         <label class="label_text_A">
                           Address
                         </label>
-                        <textarea></textarea>
+                        <textarea class="input_address">
+                        </textarea>
                     </div>
 
-                    <div>
-                        <input type="submit">
+                    <div class="inputs">
+                        <input class="custom-button_submit" id="submit" type="submit" value="SUBMIT">
                     </div>
 
                 </form>
@@ -78,80 +79,10 @@
             
         </div>
 
-
-        <div class="container">
-            <div class="Course-Section">
-                <h2 class="text">Science Course For Class 11-12</h2>
-            </div>
-            <div class="row">
-
-                <div class="col-md-3">
-                    <img class="course-images" src="images\Biology-11.jpg">
-                    <p>
-                        BIOLOGY OF CLASS 11-12
-                    </p>
-                </div>
-
-                <div class="col-md-3">  
-                    <img class="course-images" src="images\chemistry-11.jpg">
-                    <p>
-                        CHEMISTRY OF CLASS 11-12
-                    </p>
-                </div>
-
-                <div class="col-md-3">
-                    <img class="course-images" src="images\physics-11.jpg">
-                    <p>
-                        PHYSICS OF CLASS 11-12
-                    </p>
-                </div>
-
-                <div class="col-md-3">
-                    <img class="course-images" src="images\H.math-11.jpg">
-                    <p>
-                        HIGHER MATH OF CLASS 11
-                    </p>
-                </div>
-                
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="Course-Section">
-                <h2 class="text">Skill Based Courses</h2>
-            </div>
-            <div class="row">
-
-                <div class="col-md-3">
-                    <img class="course-images" src="images\javascript.jpg">
-                    <p>
-                        Learn JavaScript
-                    </p>
-                </div>
-
-                <div class="col-md-3">  
-                    <img class="course-images" src="images\machine.jpg">
-                    <p>
-                        Machine Learning, 
-                        build your own model of AI
-                    </p>
-                </div>
-
-                <div class="col-md-3">
-                    <img class="course-images" src="images\database.jpg">
-                    <p>
-                        Database Management System
-                    </p>
-                </div>
-
-                <div class="col-md-3">
-                    <img class="course-images" src="images\python.jpg">
-                    <p>
-                        Learn python and python libraries
-                    </p>
-                </div>
-                
-            </div>
+        <div class ="Foot">
+            <footer>
+                All copyright reserved by the Team ASM of CSE311
+            </footer>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
