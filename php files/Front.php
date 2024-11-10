@@ -14,7 +14,7 @@
         <li><a href="">Home</a></li>
         <li><a href="Admission_form.php">Admission</a></li>
         <li><a href="">Contact Us</a></li>
-        <li><a href="" class="custom-button">Login</a></li>
+        <li><a href="Log_in.php" class="custom-button">Login</a></li>
       </ul>
     </nav> 
 

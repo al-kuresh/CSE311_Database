@@ -244,3 +244,19 @@ footer
     height: 100px;
     text-align: center;
 }
+
+.Login_form
+{
+    padding-top: 250px;
+}
+
+.Username_label
+{
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
