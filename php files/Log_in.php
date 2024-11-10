@@ -6,11 +6,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="Css files\Front.css">
   </head>
-  <body>
+  <body background="images\Background_img.webp" class="Login_body">
 
      <center>
         <div class="Login_form">
-            <form>
+            <center class="head_of_box">
+                Login Form
+            </center>
+            <form class="login_box">
 
                 <div>
                     <label class="Username_label">
