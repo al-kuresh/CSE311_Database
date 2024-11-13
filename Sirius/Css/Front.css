@@ -1,0 +1,47 @@
+.welcome-body-page {
+    background: url(../image/background.webp);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.blurr
+{
+    background : rgba(0, 0, 0, 0.2);
+    min-height: 100vh;
+}
+
+#Front_nav
+{
+    background : rgba(0, 0, 0, 1) !important;
+   
+}
+
+.nav-link
+{
+    color : white !important;
+    
+}
+
+.modal-body img {
+    width: 80px; 
+    display: block;
+    margin: 0 auto; 
+}
+.modal-body p {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.8); 
+    border: none; 
+    box-shadow: none; 
+}
+
+
+.modal-content.show {
+    opacity: 0.6; 
+}
+
