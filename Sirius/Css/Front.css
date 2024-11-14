@@ -1,4 +1,4 @@
-.welcome-body-page {
+.welcome-body-page, .login-body  {
     background: url(../image/background.webp);
     background-size: cover;
     background-attachment: fixed;
@@ -43,5 +43,29 @@
 
 .modal-content.show {
     opacity: 0.6; 
+}
+
+.login-form
+{
+    align-content: center;
+    width: 100%;
+    max-width: 450px;
+    padding: 15px;
+    background-color: rgba(17, 17, 17, 0.8); 
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+
+
+}
+
+#login-box
+{
+    padding-top: 150px;
+}
+
+.login-header{
+   
+    text-align: center;
+    font-size: 60px;
 }
 
