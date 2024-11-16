@@ -1,92 +1,94 @@
-.welcome-body-page, .login-body  {
-    background: url(../image/background.webp);
-    background-size: cover;
-    background-attachment: fixed;
+.welcome-body-page,
+.login-body {
+  background: url(../image/background.webp);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.blurr
-{
-    background : rgba(0, 0, 0, 0.2);
-    min-height: 100vh;
+.blurr {
+  background: rgba(0, 0, 0, 0.2);
+  min-height: 100vh;
 }
 
-#Front_nav
-{
-    background : rgba(0, 0, 0, 1) !important;
-   
+#Front_nav {
+  background: rgba(0, 0, 0, 1) !important;
 }
 
-.nav-link
-{
-    color : white !important;
-    
+.nav-link {
+  color: white !important;
 }
 
 .modal-body img {
-    width: 80px; 
-    display: block;
-    margin: 0 auto; 
+  width: 80px;
+  display: block;
+  margin: 0 auto;
 }
 .modal-body p {
-    text-align: center;
-    font-size: 18px;
-    margin-top: 10px;
-    font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
 .modal-content {
-    background-color: rgba(255, 255, 255, 0.8); 
-    border: none; 
-    box-shadow: none; 
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  box-shadow: none;
 }
-
 
 .modal-content.show {
-    opacity: 0.6; 
+  opacity: 0.6;
 }
 
-.login-form
-{
-    align-content: center;
-    width: 100%;
-    max-width: 450px;
-    padding: 15px;
-    background-color: rgba(17, 17, 17, 0.8); 
-    border-radius: 20px;
-    color: rgb(255, 255, 255);
-
-
+.login-form {
+  align-content: center;
+  width: 100%;
+  max-width: 450px;
+  padding: 15px;
+  background-color: rgba(17, 17, 17, 0.8);
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
 }
 
-#login-box
-{
-    padding-top: 150px;
+#login-box {
+  padding-top: 150px;
 }
 
-.login-header{
-   
-    text-align: center;
-    font-size: 60px;
+.login-header {
+  text-align: center;
+  font-size: 60px;
 }
-.log-button
-{
-    color: white;
-    background-color: gray;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.log-button {
+  color: white;
+  background-color: gray;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .log-button:hover {
-    background-color: green;
-    color: white;
+  background-color: green;
+  color: white;
 }
 
-.alert-danger
-{
-    font-size: 14px;
-    padding: 10px;
-    text-align: center;
+.alert-danger {
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+}
+
+.Home-page {
+  background: url(../image/Home_bg.webp);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.h_blurr {
+  background: rgba(0, 0, 0, 0.2);
+  min-height: 100vh;
+}
+
+.w-500 {
+  width: 500px;
 }
