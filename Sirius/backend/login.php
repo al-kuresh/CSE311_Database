@@ -1,9 +1,9 @@
 <?php
 session_start();
-session_regenerate_id(true);
+session_regenerate_id(true); // Regenerate session ID for security
 
 if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["usert"])) {
-    $user = trim(filter_var($_POST["username"], FILTER_SANITIZE_STRING));
+    $user = trim($_POST["username"]);
     $pass = trim($_POST["password"]);
     $type = trim($_POST["usert"]);
 
@@ -11,34 +11,35 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["user
 
     // Check for empty inputs
     if (empty($user)) {
-        $em = urlencode("Give a valid Username");
+        $em = urlencode("Please provide a valid username.");
         header("Location: ../login.php?error=$em");
         exit;
     } elseif (empty($pass)) {
-        $em = urlencode("Give a valid Password");
+        $em = urlencode("Please provide a valid password.");
         header("Location: ../login.php?error=$em");
         exit;
     } elseif (empty($type)) {
-        $em = urlencode("There is a problem in your information");
+        $em = urlencode("User type is missing.");
         header("Location: ../login.php?error=$em");
         exit;
     }
 
-    // Determine the user type and corresponding SQL query
+    // Determine the table to query based on user type
+    $table = "";
     if ($type == '1') { // Admin
-        $sql = "SELECT * FROM admin WHERE LOWER(username) = LOWER(?)";
+        $table = "admin";
     } elseif ($type == '2') { // Student
-        $sql = "SELECT * FROM student WHERE LOWER(username) = LOWER(?)";
+        $table = "student";
     } elseif ($type == '3') { // Teacher
-        $sql = "SELECT * FROM teacher WHERE LOWER(username) = LOWER(?)";
+        $table = "teacher";
     } else {
-        error_log("Invalid user type: $type for username: $user");
-        $em = urlencode("Invalid user type");
+        $em = urlencode("Invalid user type.");
         header("Location: ../login.php?error=$em");
         exit;
     }
 
-    // Execute the query
+    // Prepare the SQL query
+    $sql = "SELECT * FROM $table WHERE username = ?";
     $stmt = $conct->prepare($sql);
     $stmt->execute([$user]);
 
@@ -47,10 +48,7 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["user
         $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
         $dbPassword = $userRow["password"]; // Hashed password from DB
         $fname = $userRow["f_name"];
-        $id = $userRow["admin_id"] ?? $userRow["student_id"] ?? $userRow["teacher_id"];
-
-        // Debugging fetched data
-        error_log("Fetched Password Hash: $dbPassword for user: $user");
+        $id = $userRow["id"]; // Common ID column
 
         // Verify password
         if (password_verify($pass, $dbPassword)) {
@@ -59,18 +57,15 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["user
             $_SESSION['f_name'] = $fname;
             $_SESSION['usert'] = $type;
 
-            error_log("User $user successfully logged in as type $type.");
             header("Location: ../Home-Page.php");
             exit;
         } else {
-            error_log("Password verification failed for user: $user. Input: $pass, Stored Hash: $dbPassword");
-            $em = urlencode("Invalid Username or Password");
+            $em = urlencode("Invalid username or password.");
             header("Location: ../login.php?error=$em");
             exit;
         }
     } else {
-        error_log("No user found for username: $user in table corresponding to user type $type.");
-        $em = urlencode("Invalid Username or Password");
+        $em = urlencode("Invalid username or password.");
         header("Location: ../login.php?error=$em");
         exit;
     }
