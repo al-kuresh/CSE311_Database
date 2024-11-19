@@ -48,17 +48,22 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["user
         $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
         $dbPassword = $userRow["password"]; // Hashed password from DB
         $fname = $userRow["f_name"];
-        $id = $userRow["id"]; // Common ID column
+      
 
         // Verify password
         if (password_verify($pass, $dbPassword)) {
             // Store session variables
-            $_SESSION['id'] = $id;
+            
             $_SESSION['f_name'] = $fname;
             $_SESSION['usert'] = $type;
+            if ($type == '1') { // Admin
+                $id = $userRow["admin_id"];
+                $_SESSION['admin_id'] = $id;
+                header("Location: ../admin/index.php");
+                exit;
+            } 
 
-            header("Location: ../Home-Page.php");
-            exit;
+           
         } else {
             $em = urlencode("Invalid username or password.");
             header("Location: ../login.php?error=$em");

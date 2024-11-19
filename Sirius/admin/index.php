@@ -1,6 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && isset($_SESSION['usert'])) {
+if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
+    if ($_SESSION['usert']=='1') {}
+    
     ?>
     <!DOCTYPE html>
     <html>
@@ -9,7 +11,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['usert'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Sirius - Home Page</title>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="Css\Front.css">
+        <link rel="stylesheet" type="text/css" href="..\Css\Front.css">
     </head>
     <body class="Home-page">
         <div class="h_blurr">
@@ -35,7 +37,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['usert'])) {
                             ?>
                         </b><br>
                         <h5 class="display-5"><?= htmlspecialchars($_SESSION["f_name"]) ?></h5>
-                        <a href="Logout.php" class="btn btn-danger">Log Out</a>
+                        <a href="../Logout.php" class="btn btn-danger">Log Out</a>
                     </small>
                 </div>
             </div>
@@ -44,8 +46,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['usert'])) {
     </body>
     </html>
     <?php
+    
 } else {
-    header("Location: login.php");
+    header("Location: ../login.php");
     exit;
 }
 ?>
