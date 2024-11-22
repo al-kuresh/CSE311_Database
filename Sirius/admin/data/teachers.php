@@ -4,9 +4,9 @@ function getAllTeachers($conct){
     $stmt = $conct->prepare($sql);
     $stmt->execute();
 
-    iif ($stmt->rowCount()>=1){
+    if ($stmt->rowCount()>=1){
         $teacher = $stmt -> fetchAll();
-        return $tecaher;
+        return $teacher;
     } else {
         return 0;
     }

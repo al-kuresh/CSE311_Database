@@ -3,6 +3,9 @@ session_start();
 $admin_id = $_SESSION['f_name'] ?? 'Guest';
 if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
     if ($_SESSION['usert'] == '1') {
+        include "../dbConnection.php";
+        include "../admin/data/teachers.php";
+        $teacher = getAllTeachers($conct);
     }
 
     ?>
@@ -60,11 +63,16 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 </div>
             </div>
         </nav>
+        <?php
+   
+   if ($teacher != 0) {
+  
+          ?>
         <div class="container" style="margin-top: 50px;">
             <a href="" class="btn btn-dark">Add New Teacher</a>
         </div>
         <div class="table-responsive">
-            <table class="table table-bordered mt-10 n-table">
+            <table class="table table-bordered mt-5 n-table">
 
                 <thead class="thead-dark">
                     <tr>
@@ -76,6 +84,10 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                         <th scope="col">Configure</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <?php foreach ($teacher as $teacher) 
+                    ?>
+                </tbody>
                 <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
@@ -103,6 +115,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 </tr>
                 </tbody>
             </table>
+            </div>
+        <?php } else { ?>
+            <div class="alert alert-dark" role="alert">
+                Nothing to show!
+            </div>
+        <?php } ?>
+    </div>
 
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
