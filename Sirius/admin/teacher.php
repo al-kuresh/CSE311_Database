@@ -92,7 +92,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                     <td><?=$teacher['f_name']?></td>
                     <td><?=$teacher['l_name']?></td>
                     <td><?=$teacher['username']?></td>
-                    <td><?=$teacher['sub_code']?></td>
+                    <td><?=$teacher['subject']?></td>
+                   <!-- <td><?= htmlspecialchars($teacher['subject_name'] ?? 'N/A') ?></td>  -->
+                    
                     <td>
                         <a href=""
                         class="btn btn-dark">Edit</a>

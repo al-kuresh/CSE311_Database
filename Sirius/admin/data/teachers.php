@@ -1,6 +1,18 @@
 <?php
 function getAllTeachers($conct){
     $sql = "SELECT * FROM teacher";
+    $sql = "SELECT 
+    teacher.teacher_id,
+    teacher.f_name,
+    teacher.l_name,
+    teacher.username,
+    subjects.subject
+FROM 
+    teacher
+LEFT JOIN 
+    subjects 
+ON 
+    teacher.subject_code = subjects.subject_code";
     $stmt = $conct->prepare($sql);
     $stmt->execute();
 
