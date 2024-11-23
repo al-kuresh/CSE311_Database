@@ -5,10 +5,7 @@ $admin_id = $_SESSION['f_name'] ?? 'Guest';
 // Validate session and user type
 if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
     if ($_SESSION['usert'] == '1') {
-        include "../dbConnection.php";
-        include "../admin/data/teachers.php";
-        $teacher = getAllTeachers($conct);
-        print_r($teacher);
+        
     }
 } else {
     // Redirect to login page if session is invalid
@@ -55,11 +52,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
             </div>
         </div>
     </nav>
-    <?php
-    if ($teacher != 0) {
-
-
-        ?>
+   
         <div class="container mt-5">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 text-center">
                 <a href="teacher.php" class="col btn btn-dark m-2 py-3">
@@ -94,13 +87,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                     <i class="fa fa-sign-out" aria-hidden="true"></i><br>
                     Logout
                 </a>
-            </div>
-        <?php } else { ?>
-            <div class="alert alert-dark" role="alert">
-                Nothing to show!
-            </div>
-        <?php } ?>
-    </div>
+           
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 
