@@ -85,15 +85,14 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($teacher as $teacher) 
-                    ?>
-                </tbody>
+                    <?php foreach ($teacher as $teacher)  { ?>   
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
+                   
+                    <td><?=$teacher['f_name']?></td>
+                    <td><?=$teacher['l_name']?></td>
+                    <td><?=$teacher['username']?></td>
+                    <td><?=$teacher['sub_code']?></td>
                     <td>
                         <a href=""
                         class="btn btn-dark">Edit</a>
@@ -101,18 +100,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                         class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+              <?php } ?>
                 </tbody>
             </table>
             </div>
