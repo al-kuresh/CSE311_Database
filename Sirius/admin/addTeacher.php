@@ -5,7 +5,12 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
     if ($_SESSION['usert'] == '1') {
         include "../dbConnection.php";
         include "../admin/data/teachers.php";
+        include "../admin/data/subject.php";
         $teacher = getAllTeachers($conct);
+        $f_name='';
+        $l_name='';
+        $username='';
+        $subjects='';
     }
 
     ?>
@@ -15,7 +20,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin - Teachers</title>
+        <title>Admin - Add New Teacher</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="..\Css\Front.css">
@@ -63,57 +68,70 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 </div>
             </div>
         </nav>
-        <?php
-   
-   if ($teacher != 0) {
-  
-          ?>
+        
         <div class="container" style="margin-top: 50px;">
-            <a href="addTeacher.php" class="btn btn-dark">Add New Teacher</a>
+            <a href="teacher.php" class="btn btn-dark">Go Back</a>
         </div>
-        <div class="table-responsive" style="margin: 50px;">
-    <table class="table table-bordered mt-5 n-table" style="margin: auto;">
-
-
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Subject</th>
-                        <th scope="col">Configure</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($teacher as $teacher)  { ?>   
-                <tr>
-                    <th scope="row">1</th>
-                   
-                    <td><?=$teacher['f_name']?></td>
-                    <td><?=$teacher['l_name']?></td>
-                    <td><?=$teacher['username']?></td>
-                    <td><?=$teacher['subject']?></td>
-                    <td>
-                        <a href=""
-                        class="btn btn-dark">Edit</a>
-                        <a href=""
-                        class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-              <?php } ?>
-                </tbody>
-            </table>
-            </div>
-        <?php } else { ?>
-            <div class="alert alert-dark" role="alert">
-                Nothing to show!
-            </div>
+        
+        <form  method="post" class="shadow p-3"action="" style="margin: 50px;">
+                    <div class="login-header" action="req/addTeacher.php">
+                        <h3>Add New Teacher</h3>
+                        <?php if (isset($_GET['error'])) { ?>
+          <div class="alert alert-danger" role="alert">
+           <?=$_GET['error']?>
+          </div>
         <?php } ?>
+        <?php if (isset($_GET['success'])) { ?>
+          <div class="alert alert-success" role="alert">
+           <?=$_GET['success']?>
+          </div>
+        <?php } ?>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control"  value="<?=$f_name?>" name="f_name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control"  value="<?=$l_name?>"  name="l_name">
+                    </div>
+                    <div class="mb-3">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control"  value="<?=$username?>"name="username">
+                  <!--  </div>
+                        <label class="form-label">Class</label>
+                        <input type="password" class="form-control" name="c">
+                    </div> -->
+                    <div class="mb-3">
+                        <label class="form-label">Password (By Default)</label>
+                        <input type="text" class="form-control" name="password" value="12345" readonly>
+                        
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Subject</label>
+                        <select class="form-control" id="usert" name="usert">
+                        <option value="" disabled selected>Choose an option</option>
+                        <option value="1">Physics</option>
+                            <option value="2">Chemistry</option>
+                            <option value="3">Mathematics</option>
+                            <option value="3">Biology</option>
+                        </select>
+                    </div>
+                    <center><button type="submit" class="log-button">Submit</button></center>  
+                </form>
+       
+      
     </div>
 
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+       
+</div>
+
+
+
        
     </body>
 
