@@ -19,7 +19,7 @@ if (isset($_POST['f_name']) &&
 
     $fname = $_POST['f_name'];
     $lname = $_POST['l_name'];
-    $uname = $_POST['_username'];
+    $uname = $_POST['username'];
     $pass = $_POST['password'];
     
    
