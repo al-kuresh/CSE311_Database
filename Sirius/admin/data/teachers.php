@@ -6,7 +6,10 @@ function getAllTeachers($conct){
     teacher.f_name,
     teacher.l_name,
     teacher.username,
+    teacher.Address,
+    teacher.class_code,
     subjects.subject
+
 FROM 
     teacher
 LEFT JOIN 

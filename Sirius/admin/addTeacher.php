@@ -10,7 +10,22 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
         $f_name='';
         $l_name='';
         $username='';
+        $Address='';
         $subjects='';
+        $subject_code='';
+        $class_code='';
+
+
+        function generateRandomPassword($length = 10) {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()';
+            $password = '';
+            for ($i = 0; $i < $length; $i++) {
+                $password .= $characters[random_int(0, strlen($characters) - 1)];
+            }
+            return $password;
+        }
+        $password = generateRandomPassword(10);
+
     }
 
     ?>
@@ -95,18 +110,31 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                         <label class="form-label">Last Name</label>
                         <input type="text" class="form-control"  value="<?=$l_name?>"  name="l_name">
                     </div>
-                    <div class="mb-3">
+                    
                     <div class="mb-3">
                         <label class="form-label">Username</label>
                         <input type="text" class="form-control"  value="<?=$username?>"name="username">
-                  <!--  </div>
-                        <label class="form-label">Class</label>
-                        <input type="password" class="form-control" name="c">
-                    </div> -->
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="form-control"  value="<?=htmlspecialchars($Address)?>"name="Address">
+                    </div>
+
                     <div class="mb-3">
                         <label class="form-label">Password (By Default)</label>
-                        <input type="text" class="form-control" name="password" value="12345" readonly>
-                        
+                        <input type="text" class="form-control" name="password" value="<?= htmlspecialchars($password) ?>" readonly>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Subject Code</label>
+                        <input type="number" class="form-control"  value="<?=$subject_code?>"name="subject_code">
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label class="form-label">Class Code</label>
+                        <input type="text" class="form-control"  value="<?=$class_code?>"name="class_code">
                     </div>
 
                     <div class="mb-3">
@@ -119,6 +147,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                             <option value="3">Biology</option>
                         </select>
                     </div>
+
+
                     <center><button type="submit" class="log-button">Submit</button></center>  
                 </form>
        

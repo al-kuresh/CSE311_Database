@@ -14,7 +14,7 @@ if (isset($_POST['f_name']) &&
     isset($_POST['subjects']) )
      {
     
-    include '../../DB_connection.php';
+    include '../../dbConnection.php';
     include "../data/teacher.php";
 
     $fname = $_POST['f_name'];

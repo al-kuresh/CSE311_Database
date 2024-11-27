@@ -5,6 +5,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
     if ($_SESSION['usert'] == '1') {
         include "../dbConnection.php";
         include "../admin/data/teachers.php";
+        include "../admin/data/class.php";
         $teacher = getAllTeachers($conct);
     }
 
@@ -64,10 +65,10 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
             </div>
         </nav>
         <?php
-   
-   if ($teacher != 0) {
+           
+           if ($teacher != 0) {
   
-          ?>
+        ?>
         <div class="container" style="margin-top: 50px;">
             <a href="addTeacher.php" class="btn btn-dark">Add New Teacher</a>
         </div>
@@ -81,6 +82,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Username</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Class Code</th>
                         <th scope="col">Subject</th>
                         <th scope="col">Configure</th>
                     </tr>
@@ -93,6 +96,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                     <td><?=$teacher['f_name']?></td>
                     <td><?=$teacher['l_name']?></td>
                     <td><?=$teacher['username']?></td>
+                    <td><?=$teacher['Address']?></td>
+                    <td><?=$teacher['class_code']?></td> 
                     <td><?=$teacher['subject']?></td>
                     <td>
                         <a href=""

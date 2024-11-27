@@ -2,13 +2,13 @@
 session_start();
 $admin_id = $_SESSION['f_name'] ?? 'Guest';
 
-// Validate session and user type
+
 if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
     if ($_SESSION['usert'] == '1') {
         
     }
 } else {
-    // Redirect to login page if session is invalid
+    
     header("Location: ../login.php");
     exit;
 }
@@ -19,7 +19,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sirius - Home Page</title>
+    <title>Admin - Home Page</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="..\Css\Front.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
