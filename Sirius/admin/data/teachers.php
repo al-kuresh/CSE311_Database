@@ -1,5 +1,6 @@
 <?php
-function getAllTeachers($conct){
+function getAllTeachers($conct)
+{
     $sql = "SELECT * FROM teacher";
     $sql = "SELECT 
     teacher.teacher_id,
@@ -15,12 +16,12 @@ FROM
 LEFT JOIN 
     subjects 
 ON 
-    teacher.subject_code = subjects.subject_code";
+    teacher.subject_code = subjects.subject_code order by teacher_id";
     $stmt = $conct->prepare($sql);
     $stmt->execute();
 
-    if ($stmt->rowCount()>=1){
-        $teacher = $stmt -> fetchAll();
+    if ($stmt->rowCount() >= 1) {
+        $teacher = $stmt->fetchAll();
         return $teacher;
     } else {
         return 0;

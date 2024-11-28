@@ -65,61 +65,59 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
             </div>
         </nav>
         <?php
-           
-           if ($teacher != 0) {
-  
-        ?>
-        <div class="container" style="margin-top: 50px;">
-            <a href="addTeacher.php" class="btn btn-dark">Add New Teacher</a>
-        </div>
-        <div class="table-responsive" style="margin: 50px;">
-    <table class="table table-bordered mt-5 n-table" style="margin: auto;">
+
+        if ($teacher != 0) {
+
+            ?>
+            <div class="container" style="margin-top: 50px;">
+                <a href="addTeacher.php" class="btn btn-dark">Add New Teacher</a>
+            </div>
+            <div class="table-responsive" style="margin: 50px;">
+                <table class="table table-bordered mt-5 n-table" style="margin: auto;">
 
 
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Class Code</th>
-                        <th scope="col">Subject</th>
-                        <th scope="col">Configure</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($teacher as $teacher)  { ?>   
-                <tr>
-                    <th scope="row">1</th>
-                   
-                    <td><?=$teacher['f_name']?></td>
-                    <td><?=$teacher['l_name']?></td>
-                    <td><?=$teacher['username']?></td>
-                    <td><?=$teacher['Address']?></td>
-                    <td><?=$teacher['class_code']?></td> 
-                    <td><?=$teacher['subject']?></td>
-                    <td>
-                        <a href=""
-                        class="btn btn-dark">Edit</a>
-                        <a href=""
-                        class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-              <?php } ?>
-                </tbody>
-            </table>
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Teacher_ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Class Code</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Configure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($teacher as $teacher) { ?>
+                            <tr>
+
+                                <td><?= $teacher['teacher_id'] ?></td>
+                                <td><?= $teacher['f_name'] ?></td>
+                                <td><?= $teacher['l_name'] ?></td>
+                                <td><?= $teacher['username'] ?></td>
+                                <td><?= $teacher['Address'] ?></td>
+                                <td><?= $teacher['class_code'] ?></td>
+                                <td><?= $teacher['subject'] ?></td>
+                                <td>
+                                    <a href="" class="btn btn-dark">Edit</a>
+                                    <a href="" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
         <?php } else { ?>
             <div class="alert alert-dark" role="alert">
                 Nothing to show!
             </div>
         <?php } ?>
-    </div>
+        </div>
 
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-       
+
     </body>
 
     </html>
