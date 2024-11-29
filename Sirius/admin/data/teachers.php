@@ -27,4 +27,17 @@ ON
         return 0;
     }
 }
+
+function DeleteTeachers($teacher_id, $conct)
+{
+    $sql = "DELETE FROM teacher where teacher_id =?";
+    $stmt = $conct->prepare($sql);
+    $del = $stmt->execute([$teacher_id]);
+    if ($del) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 ?>

@@ -72,6 +72,14 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
             <div class="container" style="margin-top: 50px;">
                 <a href="addTeacher.php" class="btn btn-dark">Add New Teacher</a>
             </div>
+
+            <?php if (isset($_GET['error'])) { ?>
+                <div class="alert alert-danger" role="alert"><?= $_GET['error'] ?></div>
+            <?php } ?>
+            <?php if (isset($_GET['success'])) { ?>
+                <div class="alert alert-success" role="alert"><?= $_GET['success'] ?></div>
+            <?php } ?>
+
             <div class="table-responsive" style="margin: 50px;">
                 <table class="table table-bordered mt-5 n-table" style="margin: auto;">
 
@@ -101,7 +109,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                                 <td><?= $teacher['subject'] ?></td>
                                 <td>
                                     <a href="" class="btn btn-dark">Edit</a>
-                                    <a href="" class="btn btn-danger">Delete</a>
+                                    <a href="delete_teacher.php?teacher_id=<?= $teacher['teacher_id'] ?>"
+                                        class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>
