@@ -24,7 +24,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
 
     </head>
 
-    <body>
+    <body class="image_for_teacher">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="Front_nav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -70,7 +70,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
 
             ?>
             <div class="container" style="margin-top: 50px;">
-                <a href="addTeacher.php" class="btn btn-dark">Add New Teacher</a>
+                <a href="addTeacher.php" class="add-teacher-btn">
+                    Add New Teacher
+                </a>
             </div>
 
             <?php if (isset($_GET['error'])) { ?>
@@ -80,11 +82,12 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 <div class="alert alert-info" role="alert"><?= $_GET['success'] ?></div>
             <?php } ?>
 
+
             <div class="table-responsive" style="margin: 50px;">
-                <table class="table table-bordered mt-5 n-table" style="margin: auto;">
+                <table class="table table-striped table-hover table-bordered mt-5" style="margin: auto;">
 
 
-                    <thead class="thead-dark">
+                    <thead class="thead-light" style="background: linear-gradient(145deg, #6e7c7c, #9ea7a7); color: white;">
                         <tr>
                             <th scope="col">Teacher_ID</th>
                             <th scope="col">First Name</th>

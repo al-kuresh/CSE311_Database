@@ -1,18 +1,14 @@
 <?php
 session_start();
 if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
-
     if ($_SESSION['usert'] == '1') {
-
-        if (
-            isset($_POST['teacher_id']) && isset($_POST['f_name']) && isset($_POST['l_name']) && isset($_POST['username']) &&
-            isset($_POST['Address']) && isset($_POST['subject_code']) && isset($_POST['class_code']) &&
-            isset($_POST['subject'])
-        ) {
+        if (isset($_POST['teacher_id'], $_POST['f_name'], $_POST['l_name'], $_POST['username'], $_POST['Address'], $_POST['subject_code'], $_POST['class_code'])) {
 
             include '../dbConnection.php';
-            include "../data/teachers.php";
+            include '../admin/data/teachers.php';
             include "../admin/data/subject.php";
+
+
             function unameIsUnique($username, $conct, $teacher_id)
             {
                 $teacher = getTeachersID($teacher_id, $conct);
@@ -20,27 +16,61 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 $stmt = $conct->prepare($sql);
                 $stmt->execute([$username]);
 
-                if ($teacher_id == 0) {
-                    if ($stmt->rowCount() >= 1) {
-                        return 0;
-                    } else {
-                        return 1;
-                    }
-                } else {
 
+                if ($teacher_id == 0) {
+                    return $stmt->rowCount() < 1;
+                } else {
                     if ($stmt->rowCount() >= 1) {
-                        $teacher_id = $stmt->fetch();
-                        if ($teacher['teacher_id'] == $teacher_id) {
-                            return 1;
-                        } else {
-                            return 0;
-                        }
-                    } else {
-                        return 1;
+                        $existing_teacher = $stmt->fetch();  // Fetch the teacher with the same username
+                        return $teacher['teacher_id'] == $existing_teacher['teacher_id'];  // Allow same teacher to keep their username
+                    }
+                    return true;
+                }
+            }
+
+            function validateRequiredFields($fields)
+            {
+                foreach ($fields as $field => $error_message) {
+                    if (empty($_POST[$field])) {
+                        return $error_message;
                     }
                 }
-
+                return null;
             }
+
+            $data = http_build_query([
+                'teacher_id' => $_POST["teacher_id"],
+                'f_name' => $_POST['f_name'],
+                'l_name' => $_POST['l_name'],
+                'username' => $_POST['username'],
+                'Address' => $_POST['Address'],
+                'subject_code' => $_POST['subject_code'],
+                'class_code' => $_POST['class_code'],
+                'subject' => $_POST['subject']
+            ]);
+
+            $requiredFields = [
+                'teacher_id' => 'ID is required',
+                'f_name' => 'First name is required',
+                'l_name' => 'Last name is required',
+                'username' => 'Username is required',
+                'Address' => 'Address is required',
+                'subject_code' => 'Subject code is required',
+                'class_code' => 'Class code is required'
+            ];
+
+            $error = validateRequiredFields($requiredFields);
+            if ($error) {
+                header("Location: ../admin/edit_teacher.php?error=" . urlencode($error) . "&$data");
+                exit;
+            }
+
+            if (!unameIsUnique($_POST['username'], $conct, $_POST['teacher_id'])) {
+                $em = "Username is taken! Try another";
+                header("Location: ../admin/edit_teacher.php?error=" . urlencode($em) . "&$data");
+                exit;
+            }
+
             $teacher_id = $_POST["teacher_id"];
             $fname = $_POST['f_name'];
             $lname = $_POST['l_name'];
@@ -48,59 +78,34 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
             $subject_code = $_POST['subject_code'];
             $class_code = $_POST['class_code'];
             $address = $_POST['Address'];
-            //  $subject = $_POST['subject'];
+            $password = isset($_POST['password']) ? trim($_POST['password']) : ''; // Get the password
 
-            // Check if fields are empty
-            $data = 'username=' . urlencode($uname) .
-                '&teacher_id=' . urlencode($teacher_id) .
-                '&f_name=' . urlencode($fname) .
-                '&l_name=' . urlencode($lname) .
-                '&Address=' . urlencode($address) .
-                '&subject_code=' . urlencode($subject_code) .
-                '&class_code=' . urlencode($class_code) .
-                '&subject=' . urlencode($subject);
 
-            if (empty($teacher_id)) {
-                $em = "ID is required";
-                header("Location:  ../admin/edit_teacher.php?error=" . urlencode($em) . "&$data");
-                exit;
-
-            } else if (empty($fname)) {
-                $em = "First name is required";
-                header("Location:  ../admin/edit_teacher.php?error=" . urlencode($em) . "&$data");
-                exit;
-            } else if (empty($lname)) {
-                $em = "Last name is required";
+            $teacher = getTeachersID($teacher_id, $conct);
+            if ($teacher == null) {
+                $em = "Teacher ID does not exist";
                 header("Location: ../admin/edit_teacher.php?error=" . urlencode($em) . "&$data");
                 exit;
-            } else if (empty($uname)) {
-                $em = "Username is required";
-                header("Location: ../admin/edit_teacher.php?error=" . urlencode($em) . "&$data");
-                exit;
-            } else if (!unameIsUnique($uname, $conct, $teacher_id)) {
-                $em = "Username is taken! Try another";
-                header("Location: ../admin/edit_teacher.php?error=" . urlencode($em) . "&$data");
-                exit;
-            } else if (empty($address)) {
-                $em = "Address is required";
-                header("Location: ../admin/edit_teacher.php?error=" . urlencode($em) . "&$data");
-                exit;
-            } else if (empty($subject_code)) {
-                $em = "Subject code is required";
-                header("Location: ../admin/edit_teacher.php?error=" . urlencode($em) . "&$data");
-                exit;
-            } else if (empty($class_code)) {
-                $em = "Class code is required";
-                header("Location: ../admin/edit_teacher.php?error=" . urlencode($em) . "&$data");
+            }
+            if (!empty($password)) {
+                // If a new password is provided, hash it and include it in the update
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+                $sql = "UPDATE teacher SET username = ?, f_name = ?, l_name = ?, Address = ?, subject_code = ?, class_code = ?, password = ? WHERE teacher_id = ?";
+                $stmt = $conct->prepare($sql);
+                $stmt->execute([$uname, $fname, $lname, $address, $subject_code, $class_code, $hashedPassword, $teacher_id]);
+                $sm = "Successfully updated information";
+                header("Location: ../admin/edit_teacher.php?success=" . urlencode($sm));
                 exit;
             } else {
-                $sql = "UPDATE teacher SET username = ?, f_name=?, l_name=?, Address=?, subject_code=?, class_code=? WHERE teacher_id = ? ";
+                // If no new password is provided, update without changing the password
+                $sql = "UPDATE teacher SET username = ?, f_name = ?, l_name = ?, Address = ?, subject_code = ?, class_code = ? WHERE teacher_id = ?";
                 $stmt = $conct->prepare($sql);
-                $stmt->execute([$teacher_id, $fname, $lname, $uname, $address, $subject_code, $class_code]);
-                $sm = "successfully information Updated";
+                $stmt->execute([$uname, $fname, $lname, $address, $subject_code, $class_code, $teacher_id]);
+                $sm = "Successfully updated information";
                 header("Location: ../admin/edit_teacher.php?success=" . urlencode($sm));
                 exit;
             }
+
         } else {
             $em = "All fields are required";
             header("Location: ../admin/edit_teacher.php?error=" . urlencode($em));

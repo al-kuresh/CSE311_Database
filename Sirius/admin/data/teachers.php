@@ -42,15 +42,14 @@ function DeleteTeachers($teacher_id, $conct)
 
 function getTeachersID($teacher_id, $conct)
 {
-    $sql = "SELECT * from teacher where teacher_id =?";
+    $sql = "SELECT * FROM teacher WHERE teacher_id = ?";
     $stmt = $conct->prepare($sql);
     $stmt->execute([$teacher_id]);
 
-    if ($stmt->rowCount() >= 1) {
-        $teacher = $stmt->fetch();
+    if ($teacher = $stmt->fetch()) {
         return $teacher;
     } else {
-        return 0;
+        return null;  // Changed 0 to null
     }
 }
 ?>

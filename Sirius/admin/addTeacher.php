@@ -44,7 +44,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['use
 
     </head>
 
-    <body>
+    <body class="add_image_teacher">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="Front_nav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">

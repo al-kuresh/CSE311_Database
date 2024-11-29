@@ -10,6 +10,7 @@ if (isset($_SESSION['admin_id']) && ($_SESSION['usert'] == '1') && isset($_GET['
     $teacher_id = $_GET['teacher_id'];
     $teacher = getTeachersID($teacher_id, $conct);
     if ($teacher == 0) {
+        $_GET['error'] = 'Teacher not found.';
         header("Location: teacher.php ");
         exit;
     }
@@ -29,7 +30,7 @@ if (isset($_SESSION['admin_id']) && ($_SESSION['usert'] == '1') && isset($_GET['
 
     </head>
 
-    <body>
+    <body class="image_of_modify">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="Front_nav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -124,24 +125,15 @@ if (isset($_SESSION['admin_id']) && ($_SESSION['usert'] == '1') && isset($_GET['
                         <input type="text" class="form-control" value="<?= $teacher['class_code'] ?>" name="class_code">
                     </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Change Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Enter new password">
+                    </div>
+
                     <div class="text-center">
                         <button type="submit" class="log-button">Done</button>
                     </div>
 
-
-                    <form method="post" class="shadow p-3" action="../req/edit_teacher_backened.php">
-                        <?php if (isset($_GET['error'])) { ?>
-                            <div class="alert alert-danger" role="alert"><?= $_GET['error'] ?></div>
-                        <?php } ?>
-                        <?php if (isset($_GET['success'])) { ?>
-                            <div class="alert alert-success" role="alert"><?= $_GET['success'] ?></div>
-                        <?php } ?>
-                        <div class="mb-3">
-                            <label class="form-label">Change Password</label>
-                            <input type="text" class="form-control" name="password"
-                                value="<?= htmlspecialchars($password) ?>" readonly>
-                        </div>
-                    </form>
                 </div>
             </div>
         </form>

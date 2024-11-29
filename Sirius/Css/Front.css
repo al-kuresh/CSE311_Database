@@ -5,6 +5,23 @@
   background-attachment: fixed;
 }
 
+.image_for_teacher {
+  background: url(../image/web_back.webp);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.image_of_modify,
+.add_image_teacher {
+  background: url(../image/modify.webp);
+  background-size: cover;
+  background-attachment: fixed;
+}
+.admin_home {
+  background: url(../image/admin_home.webp);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .blurr {
   background: rgba(0, 0, 0, 0.2);
   min-height: 100vh;
@@ -119,4 +136,89 @@ n-table {
 .card-custom .btn-custom {
   background-color: #007bff;
   color: white;
+}
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.table th,
+.table td {
+  padding: 15px;
+  vertical-align: middle;
+  text-align: center;
+  border: none;
+}
+
+/* Table Header */
+.table thead th {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Hover Effect on Rows */
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+}
+
+/* Table striped rows */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+/* Buttons Style */
+.btn {
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-sm {
+  font-size: 0.9rem;
+}
+
+/* Edit Button Style */
+.btn-edit {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+.btn-edit:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* Delete Button Style */
+.btn-delete {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+.btn-delete:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+
+.add-teacher-btn {
+  background-color: white;
+  color: black;
+  border: 1px solid #000;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block; /* Makes it behave like a button */
+  transition: background-color 0.3s, color 0.3s; /* Smooth color transition */
+}
+
+.add-teacher-btn:hover {
+  background-color: #f0f0f0; /* Light gray background on hover */
+  color: #333; /* Slightly darker text on hover */
 }
