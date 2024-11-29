@@ -1,7 +1,7 @@
 <?php
 session_start();
 $admin_id = $_SESSION['f_name'] ?? 'Guest';
-if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['usert'] == '1') && isset($_GET['teacher_id'])) {
+if (isset($_SESSION['admin_id']) && ($_SESSION['usert'] == '1') && isset($_GET['teacher_id'])) {
     include "../dbConnection.php";
     include "../admin/data/teachers.php";
     include "../admin/data/subject.php";
@@ -13,12 +13,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['use
         header("Location: teacher.php ");
         exit;
     }
-
-
-
-
-
-
 
     ?>
     <!DOCTYPE html>
@@ -76,8 +70,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['use
             </div>
         </nav>
 
-        <form method="post" class="shadow p-3" action="../req/teacherAdd.php">
-
+        <form method="post" class="shadow p-3" action="../req/edit_teacher_backened.php">
             <div class="card mx-auto card-custom" style="max-width: 500px; margin-top: 50px;">
                 <div class="card-body">
                     <div class="login-header">
@@ -92,7 +85,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['use
 
                     <div class="mb-3">
                         <label class="form-label">ID</label>
-                        <input type="number" class="form-control" value="<?= $teacher_id ?>" name="teacher_id">
+                        <input type="number" class="form-control" value="<?= $teacher['teacher_id'] ?>" name="teacher_id">
                     </div>
 
                     <div class="mb-3">
@@ -119,14 +112,6 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['use
                             name="Address">
                     </div>
 
-
-                    <div class="mb-3">
-                        <label class="form-label">Password (By Default)</label>
-                        <input type="text" class="form-control" name="password" value="<?= htmlspecialchars($password) ?>"
-                            readonly>
-                    </div>
-
-
                     <div class="mb-3">
                         <label class="form-label">Subject Code</label>
                         <input type="number" class="form-control" value="<?= $teacher['subject_code'] ?>"
@@ -139,25 +124,12 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['use
                         <input type="text" class="form-control" value="<?= $teacher['class_code'] ?>" name="class_code">
                     </div>
 
-
-                    <div class="mb-3">
-                        <label class="form-label">Subject</label>
-                        <select class="form-control" id="subject" name="subject">
-                            <option value="" disabled selected>Choose an option</option>
-                            <option value="1">Physics</option>
-                            <option value="2">Chemistry</option>
-                            <option value="3">Mathematics</option>
-                            <option value="4">Biology</option>
-                        </select>
-                    </div>
-
-
                     <div class="text-center">
-                        <button type="submit" class="log-button">Submit</button>
+                        <button type="submit" class="log-button">Done</button>
                     </div>
 
-                    <form method="post" class="shadow p-3" action="../req/teacherAdd.php">
-                        <h3 class="card-title text-center">Change Password</h3>
+
+                    <form method="post" class="shadow p-3" action="../req/edit_teacher_backened.php">
                         <?php if (isset($_GET['error'])) { ?>
                             <div class="alert alert-danger" role="alert"><?= $_GET['error'] ?></div>
                         <?php } ?>
@@ -165,16 +137,11 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['use
                             <div class="alert alert-success" role="alert"><?= $_GET['success'] ?></div>
                         <?php } ?>
                         <div class="mb-3">
-                            <label class="form-label">Password (By Default)</label>
+                            <label class="form-label">Change Password</label>
                             <input type="text" class="form-control" name="password"
                                 value="<?= htmlspecialchars($password) ?>" readonly>
                         </div>
                     </form>
-
-
-
-
-
                 </div>
             </div>
         </form>
