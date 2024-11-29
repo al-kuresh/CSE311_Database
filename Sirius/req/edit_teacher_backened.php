@@ -21,8 +21,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                     return $stmt->rowCount() < 1;
                 } else {
                     if ($stmt->rowCount() >= 1) {
-                        $existing_teacher = $stmt->fetch();  // Fetch the teacher with the same username
-                        return $teacher['teacher_id'] == $existing_teacher['teacher_id'];  // Allow same teacher to keep their username
+                        $existing_teacher = $stmt->fetch();
+                        return $teacher['teacher_id'] == $existing_teacher['teacher_id'];
                     }
                     return true;
                 }
@@ -78,7 +78,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
             $subject_code = $_POST['subject_code'];
             $class_code = $_POST['class_code'];
             $address = $_POST['Address'];
-            $password = isset($_POST['password']) ? trim($_POST['password']) : ''; // Get the password
+            $password = isset($_POST['password']) ? trim($_POST['password']) : '';
 
 
             $teacher = getTeachersID($teacher_id, $conct);
@@ -88,7 +88,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 exit;
             }
             if (!empty($password)) {
-                // If a new password is provided, hash it and include it in the update
+
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "UPDATE teacher SET username = ?, f_name = ?, l_name = ?, Address = ?, subject_code = ?, class_code = ?, password = ? WHERE teacher_id = ?";
                 $stmt = $conct->prepare($sql);
@@ -97,7 +97,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 header("Location: ../admin/edit_teacher.php?success=" . urlencode($sm));
                 exit;
             } else {
-                // If no new password is provided, update without changing the password
+
                 $sql = "UPDATE teacher SET username = ?, f_name = ?, l_name = ?, Address = ?, subject_code = ?, class_code = ? WHERE teacher_id = ?";
                 $stmt = $conct->prepare($sql);
                 $stmt->execute([$uname, $fname, $lname, $address, $subject_code, $class_code, $teacher_id]);

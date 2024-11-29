@@ -151,7 +151,6 @@ n-table {
   border: none;
 }
 
-/* Table Header */
 .table thead th {
   font-size: 1.1rem;
   font-weight: 600;
@@ -159,18 +158,15 @@ n-table {
   letter-spacing: 1px;
 }
 
-/* Hover Effect on Rows */
 .table tbody tr:hover {
   background-color: #f1f1f1;
   transform: translateY(-2px);
 }
 
-/* Table striped rows */
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: #f9f9f9;
 }
 
-/* Buttons Style */
 .btn {
   font-weight: bold;
   padding: 8px 15px;
@@ -182,7 +178,6 @@ n-table {
   font-size: 0.9rem;
 }
 
-/* Edit Button Style */
 .btn-edit {
   background-color: #4caf50;
   color: white;
@@ -194,7 +189,6 @@ n-table {
   transform: scale(1.05);
 }
 
-/* Delete Button Style */
 .btn-delete {
   background-color: #f44336;
   color: white;
@@ -214,11 +208,11 @@ n-table {
   padding: 10px 20px;
   font-size: 16px;
   text-decoration: none;
-  display: inline-block; /* Makes it behave like a button */
-  transition: background-color 0.3s, color 0.3s; /* Smooth color transition */
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .add-teacher-btn:hover {
-  background-color: #f0f0f0; /* Light gray background on hover */
-  color: #333; /* Slightly darker text on hover */
+  background-color: #f0f0f0;
+  color: #333;
 }

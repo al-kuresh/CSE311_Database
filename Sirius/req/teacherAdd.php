@@ -20,7 +20,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 $stmt = $conct->prepare($sql);
                 $stmt->execute([$username]);
                 $count = $stmt->fetchColumn();
-                return $count == 0;  // Returns true if username is unique, false otherwise
+                return $count == 0;
             }
             $teacher_id = $_POST["teacher_id"];
             $fname = $_POST['f_name'];
@@ -30,9 +30,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
             $subject_code = $_POST['subject_code'];
             $class_code = $_POST['class_code'];
             $address = $_POST['Address'];
-            //  $subject = $_POST['subject'];
 
-            // Check if fields are empty
+
             $data = 'username=' . urlencode($uname) .
                 '&teacher_id=' . urlencode($teacher_id) .
                 '&f_name=' . urlencode($fname) .

@@ -49,7 +49,7 @@ function getTeachersID($teacher_id, $conct)
     if ($teacher = $stmt->fetch()) {
         return $teacher;
     } else {
-        return null;  // Changed 0 to null
+        return null;
     }
 }
 ?>
