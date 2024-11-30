@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2024 at 05:43 PM
+-- Generation Time: Nov 25, 2024 at 05:08 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL,
+  `admin_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `f_name` varchar(50) NOT NULL,
@@ -39,9 +39,32 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `f_name`, `l_name`) VALUES
+INSERT INTO `admin` (`admin_id`, `username`, `password`, `f_name`, `l_name`) VALUES
 (1, 'sanam', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Sanam Ara', 'Niloy'),
-(2, 'abir', '$2b$12$wcLcLuuL.AXN2d3yqaVOa.jOy2ePd5YyNf5KpLP07qZwpSEQbwwOG', 'Abir Al', 'Mahdi');
+(2, 'abir', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abir Al', 'Mahdi'),
+(3, 'mahee', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Nazifa', 'Tasnim');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class`
+--
+
+CREATE TABLE `class` (
+  `class_id` int(11) NOT NULL,
+  `class` varchar(31) NOT NULL,
+  `class_code` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `class`
+--
+
+INSERT INTO `class` (`class_id`, `class`, `class_code`) VALUES
+(1, '9', 'SSC_1'),
+(2, '10', 'SSC_2'),
+(3, '11', 'HSC_1'),
+(4, '12', 'HSC_2');
 
 -- --------------------------------------------------------
 
@@ -67,23 +90,48 @@ INSERT INTO `student` (`id`, `username`, `password`, `f_name`, `l_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subjects`
+--
+
+CREATE TABLE `subjects` (
+  `subject_id` int(11) NOT NULL,
+  `subject` varchar(31) NOT NULL,
+  `subject_code` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `subjects`
+--
+
+INSERT INTO `subjects` (`subject_id`, `subject`, `subject_code`) VALUES
+(1, 'Physics', 101),
+(2, 'Chemistry', 102),
+(1, 'Maths', 103),
+(1, 'Biology', 104);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `teacher`
 --
 
 CREATE TABLE `teacher` (
-  `id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `f_name` varchar(50) NOT NULL,
-  `l_name` varchar(50) NOT NULL
+  `l_name` varchar(50) NOT NULL,
+  `class` int(11) NOT NULL,
+  `subject_code` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`id`, `username`, `password`, `f_name`, `l_name`) VALUES
-(1, 'pronoy', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Khalid', 'Pronoy');
+INSERT INTO `teacher` (`teacher_id`, `username`, `password`, `f_name`, `l_name`, `class`, `subject_code`) VALUES
+(1, 'pronoy', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Khalid', 'Pronoy', 0, 101),
+(2, 'samia', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Samia', 'Khan', 0, 102);
 
 --
 -- Indexes for dumped tables
@@ -93,7 +141,7 @@ INSERT INTO `teacher` (`id`, `username`, `password`, `f_name`, `l_name`) VALUES
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`admin_id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
@@ -107,7 +155,7 @@ ALTER TABLE `student`
 -- Indexes for table `teacher`
 --
 ALTER TABLE `teacher`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`teacher_id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
@@ -118,7 +166,7 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -130,7 +178,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
