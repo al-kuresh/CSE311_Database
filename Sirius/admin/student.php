@@ -4,9 +4,11 @@ $admin_id = $_SESSION['f_name'] ?? 'Guest';
 if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
     if ($_SESSION['usert'] == '1') {
         include "../dbConnection.php";
-        include "../admin/data/teachers.php";
+        include "../admin/data/students.php";
         include "../admin/data/class.php";
-        $teacher = getAllTeachers($conct);
+
+
+        $students = getAllStudents($conct);
     }
 
     ?>
@@ -16,7 +18,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Admin - Teachers</title>
+        <title>Admin - Students</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="..\Css\Front.css">
@@ -64,20 +66,13 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 </div>
             </div>
         </nav>
-        <?php
 
-        if ($teacher != 0) {
-
-            ?>
+        <?php if ($students != 0) { ?>
             <div class="container" style="margin-top: 50px;">
-                <a href="addTeacher.php" class="add-teacher-btn">
-                    Add New Teacher
-                </a>
-                <a href="Payment.php" class="add-teacher-btn">
-                    Payments of Teachers
+                <a href="addStudent.php" class="add-teacher-btn">
+                    Add New Student
                 </a>
             </div>
-
 
             <?php if (isset($_GET['error'])) { ?>
                 <div class="alert alert-danger" role="alert"><?= $_GET['error'] ?></div>
@@ -86,39 +81,32 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 <div class="alert alert-info" role="alert"><?= $_GET['success'] ?></div>
             <?php } ?>
 
-
             <div class="table-responsive" style="margin: 50px;">
-                <table class="table table-striped table-hover table-bordered mt-5" style="margin: auto;">
-
-
-                    <thead class="thead-light" style="background: linear-gradient(145deg, #6e7c7c, #9ea7a7); color: white;">
+                <table class="table table-striped table-hover table-bordered mt- <table class=" table table-striped table-hover
+                    table-bordered mt-4">
+                    <thead>
                         <tr>
-                            <th scope="col">Teacher_ID</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Class Code</th>
-                            <th scope="col">Subject</th>
-                            <th scope="col">Configure</th>
+                            <th>Student ID</th>
+                            <th>Username</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Class Code</th>
+                            <th>Address</th>
+                            <th>Configure</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($teacher as $teacher) { ?>
+                        <?php foreach ($students as $student) { ?>
                             <tr>
-
-                                <td><?= $teacher['teacher_id'] ?></td>
-                                <td><?= $teacher['f_name'] ?></td>
-                                <td><?= $teacher['l_name'] ?></td>
-                                <td><?= $teacher['username'] ?></td>
-                                <td><?= $teacher['Address'] ?></td>
-                                <td><?= $teacher['class_code'] ?></td>
-                                <td><?= $teacher['subject'] ?></td>
+                                <td><?= htmlspecialchars($student['student_id']) ?></td>
+                                <td><?= htmlspecialchars($student['username']) ?></td>
+                                <td><?= htmlspecialchars($student['f_name']) ?></td>
+                                <td><?= htmlspecialchars($student['l_name']) ?></td>
+                                <td><?= htmlspecialchars($student['class_code']) ?></td>
+                                <td><?= htmlspecialchars($student['Address']) ?></td>
                                 <td>
-                                    <a href="edit_teacher.php?teacher_id=<?= $teacher['teacher_id'] ?>"
-                                        class="btn btn-dark">Edit</a>
-                                    <a href="delete_teacher.php?teacher_id=<?= $teacher['teacher_id'] ?>"
-                                        class="btn btn-danger">Delete</a>
+                                    <a href="editStudent.php?id=<?= $student['student_id'] ?>" class="btn btn-dark">Edit</a>
+                                    <a href="deleteStudent.php?id=<?= $student['student_id'] ?>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -126,22 +114,16 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 </table>
             </div>
         <?php } else { ?>
-            <div class="alert alert-dark" role="alert">
-                Nothing to show!
-            </div>
+            <div class="alert alert-warning" role="alert">No students found.</div>
         <?php } ?>
-        </div>
 
-        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
     </body>
 
     </html>
     <?php
-
 } else {
     header("Location: ../login.php");
-    exit;
+    exit();
 }
 ?>
