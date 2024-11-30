@@ -89,7 +89,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && $_SESSION['user
                 <select name="sortOrder" id="sortOrder" onchange="this.form.submit()">
                     <option value="ASC" <?= (isset($_GET['sortOrder']) && $_GET['sortOrder'] == 'ASC') ? 'selected' : '' ?>>
                         Low to High</option>
-                    <option value="DESC" <?= (isset($_GET['sortOrder']) && $_GET['sortOrder'] == 'DESC ') ? 'selected' : '' ?>>
+                    <option value="DESC" <?= (isset($_GET['sortOrder']) && $_GET['sortOrder'] == 'DESC') ? 'selected' : '' ?>>
                         High to Low</option>
                 </select>
             </form>
