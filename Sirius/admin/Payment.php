@@ -6,21 +6,26 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && $_SESSION['user
     include "../dbConnection.php";
 
 
+    $order = isset($_GET['sortOrder']) ? $_GET['sortOrder'] : 'ASC';
+
     $sql = "SELECT 
-                t.teacher_id,
-                t.username,
-                SUM(c.`teacher's_Payment`) AS total_payment
+            t.teacher_id,
+            t.username,
+            c.class_name,
+            SUM(c.`teacher's_Payment`) + (COUNT(s.student_id) * 100) AS total_payment
             FROM 
-                teacher t
+            teacher t
             LEFT JOIN 
-                class c ON t.class_code = c.class_code
+            class c ON t.class_code = c.class_code
+            LEFT JOIN 
+            student s ON c.class_code = s.class_code
             GROUP BY 
-                t.teacher_id, t.username";
+            t.teacher_id, t.username
+            ORDER BY total_payment $order;";
 
     $stmt = $conct->prepare($sql);
     $stmt->execute();
     $payments = $stmt->fetchAll();
-
     ?>
     <!DOCTYPE html>
     <html>
@@ -79,37 +84,43 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && $_SESSION['user
         <div class="container mt-5">
             <h2 class="text-center">Teacher Payments</h2>
 
-            <div class="table-responsive">
-                <table class="table table-striped ```php
-                table-hover table-bordered mt-5">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Teacher ID</th>
-                            <th scope="col">Username</th>
-                            <th scope="col">Total Payment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($payments as $payment) { ?>
-                            <tr>
-                                <td><?= htmlspecialchars($payment['teacher_id']) ?></td>
-                                <td><?= htmlspecialchars($payment['username']) ?></td>
-                                <td><?= htmlspecialchars($payment['total_payment'] ?? 0) ?></td>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            <form method="GET" class="mb-4">
+                <label for="sortOrder">Sort by Total Payment:</label>
+                <select name="sortOrder" id="sortOrder" onchange="this.form.submit()">
+                    <option value="ASC" <?= (isset($_GET['sortOrder']) && $_GET['sortOrder'] == 'ASC') ? 'selected' : '' ?>>
+                        Low to High</option>
+                    <option value="DESC" <?= (isset($_GET['sortOrder']) && $_GET['sortOrder'] == 'DESC ') ? 'selected' : '' ?>>
+                        High to Low</option>
+                </select>
+            </form>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Teacher ID</th>
+                        <th>Username</th>
+                        <th>Class Name</th>
+                        <th>Total Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($payments as $payment): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($payment['teacher_id']) ?></td>
+                            <td><?= htmlspecialchars($payment['username']) ?></td>
+                            <td><?= htmlspecialchars($payment['class_name']) ?></td>
+                            <td><?= htmlspecialchars($payment['total_payment']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </body>
 
     </html>
     <?php
-
 } else {
-    header("Location: ../login.php");
-    exit;
+    header("Location: ../index.php");
+    exit();
 }
 ?>
