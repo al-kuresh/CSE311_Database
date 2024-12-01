@@ -3,13 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Nov 30, 2024 at 05:57 PM
-=======
--- Generation Time: Nov 25, 2024 at 05:08 PM
->>>>>>> 5be267d2ac6469c8ae12fb24941bc50bdcf142b7
+-- Generation Time: Nov 30, 2024 at 07:13 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,13 +40,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `username`, `password`, `f_name`, `l_name`) VALUES
-<<<<<<< HEAD
 (1, 'kuresh', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Al Kuresh', 'Muna'),
 (2, 'sifat', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Sifat', 'Sadik'),
-=======
-(1, 'sanam', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Sanam Ara', 'Niloy'),
-(2, 'abir', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abir Al', 'Mahdi'),
->>>>>>> 5be267d2ac6469c8ae12fb24941bc50bdcf142b7
 (3, 'mahee', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Nazifa', 'Tasnim');
 
 -- --------------------------------------------------------
@@ -60,24 +51,17 @@ INSERT INTO `admin` (`admin_id`, `username`, `password`, `f_name`, `l_name`) VAL
 --
 
 CREATE TABLE `class` (
-<<<<<<< HEAD
   `class_name` int(11) NOT NULL,
   `class_code` varchar(255) NOT NULL,
   `Days` varchar(50) DEFAULT NULL,
   `teacher's_Payment` decimal(10,2) DEFAULT NULL,
   `class_time` varchar(16) DEFAULT NULL
-=======
-  `class_id` int(11) NOT NULL,
-  `class` varchar(31) NOT NULL,
-  `class_code` varchar(7) NOT NULL
->>>>>>> 5be267d2ac6469c8ae12fb24941bc50bdcf142b7
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `class`
 --
 
-<<<<<<< HEAD
 INSERT INTO `class` (`class_name`, `class_code`, `Days`, `teacher's_Payment`, `class_time`) VALUES
 (10, '10Bio', 'Tuesday', 5000.00, '04:30 -05:45 pm'),
 (10, '10Chem', 'Tuesday', 5000.00, '08:00-09:15 am'),
@@ -103,13 +87,6 @@ INSERT INTO `class` (`class_name`, `class_code`, `Days`, `teacher's_Payment`, `c
 (9, '9Ict', 'Saturday', 4000.00, '04:30-05:45 pm'),
 (9, '9Math', 'Saturday', 5000.00, '08:00-09:15 am'),
 (9, '9Phy', 'Saturday', 5000.00, '07:00-08:00 am');
-=======
-INSERT INTO `class` (`class_id`, `class`, `class_code`) VALUES
-(1, '9', 'SSC_1'),
-(2, '10', 'SSC_2'),
-(3, '11', 'HSC_1'),
-(4, '12', 'HSC_2');
->>>>>>> 5be267d2ac6469c8ae12fb24941bc50bdcf142b7
 
 -- --------------------------------------------------------
 
@@ -135,7 +112,34 @@ CREATE TABLE `student` (
 INSERT INTO `student` (`username`, `password`, `f_name`, `l_name`, `student_id`, `class_code`, `Address`, `class_name`) VALUES
 ('samir', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Shamir', 'onanto', 1, '10Phy', 'DIT, Narayangonj', 10),
 ('radi', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Radi', 'Yan', 2, '10Phy', 'Bandar, Narayangonj', 10),
-('abhi', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abhisekh', 'Ujjol', 3, '11Chem', 'Bashundhara R/A, Dhaka', 11);
+('abhi', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abhisekh', 'Ujjol', 3, '11Chem', 'Bashundhara R/A, Dhaka', 11),
+('sur', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Surja', 'Adham', 4, '10Math', 'Bashundhara R/A, Dhaka', 10),
+('reh', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Rehnuma', 'Mahjabin', 5, '11Chem', 'Bandar, Narayanganj', 11),
+('meem', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Meem', 'Rahman', 6, '9Eng', 'Uttara, Dhaka', 9),
+('oma', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Omar', 'Sadik', 7, '9Math', 'Badda, Dhaka', 9),
+('mehd', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Mehedi', 'Hasan', 8, '9Phy', 'Badda, Dhaka', 9),
+('sai', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Saiham', 'Sami', 9, '10Eng', 'Badda, Dhaka', 10),
+('bad', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Badhon', 'Minhaj', 10, '10Ict', 'Uttara, Dhaka', 10),
+('abu', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abu', 'Sadat', 11, '10Bio', 'Badda, Dhaka', 10),
+('malh', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Maliha', 'Aronno', 12, '12Bio', 'Banasree, Dhaka', 12),
+('far', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Farihaa', 'Ahmed', 13, '12Math', 'Dhanmondi, Dhaka', 12),
+('tasf', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Tasfia', 'Haque', 14, '12Ict', 'Dhanmondi, Dhaka', 12),
+('umm', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Umme ', 'Sani', 15, '12Bio', 'Mirpur, Dhaka', 12),
+('fou', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Fouzia', 'Luna', 16, '10Math', 'Badda, Dhaka', 10),
+('moi', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Moinul', 'Haque', 17, '10Chem', 'Mirpur, Dhaka', 10),
+('ish', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Ishraka', 'Jahir', 18, '9Chem', 'Badda, Dhaka', 9),
+('sif', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Sifat', 'Ullah', 19, '9Ict', 'Mirpur, Dhaka', 9),
+('ishm', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Ishmam', 'Ahmed', 20, '10Bio', 'Gulistan, Dhaka', 10),
+('isht', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Ishtiaq', 'Ahmed', 21, '10Math', 'Badda, Dhaka', 10),
+('nabil', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Nabil', 'Ahmed', 22, '9Ict', 'Mirpur, Dhaka', 9),
+('orna', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Zerin', 'Orna', 23, '10Eng', 'Badda, Dhaka', 10),
+('nafi', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Wasif', 'Nafi', 24, '10Eng', 'Uttara, Dhaka', 10),
+('arif', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Ariful', 'Islam', 25, '9Chem', 'Mirpur, Dhaka', 9),
+('moh', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Mohibul', 'Hasan', 26, '9Chem', 'Uttara, Dhaka', 9),
+('gal', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Galib', 'Ahsan', 27, '9Math', 'Uttara, Dhaka', 9),
+('jahn', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Jahan', 'Nahin', 28, '10Bio', 'Badda, Dhaka', 10),
+('abd', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abid', 'Pasha', 29, '10Eng', 'Dhanmondi, Dhaka', 10),
+('saima', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Saima', 'Abedin', 30, '11Chem', 'Uttara, Dhaka', 11);
 
 -- --------------------------------------------------------
 
@@ -164,28 +168,6 @@ INSERT INTO `subjects` (`subject_id`, `subject`, `subject_code`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subjects`
---
-
-CREATE TABLE `subjects` (
-  `subject_id` int(11) NOT NULL,
-  `subject` varchar(31) NOT NULL,
-  `subject_code` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `subjects`
---
-
-INSERT INTO `subjects` (`subject_id`, `subject`, `subject_code`) VALUES
-(1, 'Physics', 101),
-(2, 'Chemistry', 102),
-(1, 'Maths', 103),
-(1, 'Biology', 104);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `teacher`
 --
 
@@ -195,21 +177,15 @@ CREATE TABLE `teacher` (
   `password` varchar(255) NOT NULL,
   `f_name` varchar(50) NOT NULL,
   `l_name` varchar(50) NOT NULL,
-<<<<<<< HEAD
   `subject_code` int(3) NOT NULL,
   `class_code` varchar(255) DEFAULT NULL,
   `Address` varchar(300) DEFAULT NULL
-=======
-  `class` int(11) NOT NULL,
-  `subject_code` int(3) NOT NULL
->>>>>>> 5be267d2ac6469c8ae12fb24941bc50bdcf142b7
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `teacher`
 --
 
-<<<<<<< HEAD
 INSERT INTO `teacher` (`teacher_id`, `username`, `password`, `f_name`, `l_name`, `subject_code`, `class_code`, `Address`) VALUES
 (1, 'abrar', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abrar', 'Yasir', 103, '12Math', 'Bandar, Narayangonj'),
 (2, 'araf', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abdullah Al', 'Mahmud', 101, '12Phy', 'Azimpur,Dhaka'),
@@ -221,11 +197,6 @@ INSERT INTO `teacher` (`teacher_id`, `username`, `password`, `f_name`, `l_name`,
 (8, 'shakib', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Junaid', 'Ahammed', 106, '11Ict', 'Mirpur, Narayangonj'),
 (9, 'nafis', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Nafis', 'Nadim', 101, '9Phy', 'Palashi, Dhaka'),
 (10, 'rIfat', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Mahmudul Hasa', 'Rifat', 103, '10Math', 'Panthapath,Dhaka');
-=======
-INSERT INTO `teacher` (`teacher_id`, `username`, `password`, `f_name`, `l_name`, `class`, `subject_code`) VALUES
-(1, 'pronoy', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Khalid', 'Pronoy', 0, 101),
-(2, 'samia', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Samia', 'Khan', 0, 102);
->>>>>>> 5be267d2ac6469c8ae12fb24941bc50bdcf142b7
 
 --
 -- Indexes for dumped tables
@@ -256,12 +227,8 @@ ALTER TABLE `student`
 --
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`teacher_id`),
-<<<<<<< HEAD
   ADD UNIQUE KEY `username` (`username`),
   ADD KEY `fk_class_code` (`class_code`);
-=======
-  ADD UNIQUE KEY `username` (`username`);
->>>>>>> 5be267d2ac6469c8ae12fb24941bc50bdcf142b7
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -271,23 +238,12 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-<<<<<<< HEAD
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-=======
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `student`
---
-ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
->>>>>>> 5be267d2ac6469c8ae12fb24941bc50bdcf142b7
 
 --
 -- AUTO_INCREMENT for table `teacher`
 --
 ALTER TABLE `teacher`
-<<<<<<< HEAD
   MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
@@ -299,9 +255,6 @@ ALTER TABLE `teacher`
 --
 ALTER TABLE `teacher`
   ADD CONSTRAINT `fk_class_code` FOREIGN KEY (`class_code`) REFERENCES `class` (`class_code`) ON DELETE CASCADE ON UPDATE CASCADE;
-=======
-  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
->>>>>>> 5be267d2ac6469c8ae12fb24941bc50bdcf142b7
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
