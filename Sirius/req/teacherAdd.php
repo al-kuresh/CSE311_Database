@@ -7,7 +7,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
         if (
             isset($_POST['teacher_id']) && isset($_POST['f_name']) && isset($_POST['l_name']) && isset($_POST['username']) &&
             isset($_POST['Address']) && isset($_POST['subject_code']) && isset($_POST['class_code']) &&
-            isset($_POST['password']) && isset($_POST['subject'])
+            isset($_POST['password'])
         ) {
 
             include '../dbConnection.php';
@@ -38,8 +38,8 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 '&l_name=' . urlencode($lname) .
                 '&Address=' . urlencode($address) .
                 '&subject_code=' . urlencode($subject_code) .
-                '&class_code=' . urlencode($class_code) .
-                '&subject=' . urlencode($subject);
+                '&class_code=' . urlencode($class_code);
+            // '&subject=' . urlencode($subject);
 
             if (empty($teacher_id)) {
                 $em = "ID is required";

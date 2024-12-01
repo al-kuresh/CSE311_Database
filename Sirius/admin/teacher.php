@@ -44,7 +44,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">Teachers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Students</a>
+                            <a class="nav-link" aria-current="page" href="student.php">Students</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Class</a>
