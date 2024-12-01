@@ -135,10 +135,19 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['use
                     </div>
 
 
+                    
                     <div class="mb-3">
-                        <label class="form-label">Subject Code</label>
-                        <input type="number" class="form-control" value="<?= $subject_code ?>" name="subject_code">
-                    </div>
+                    <label class="form-label">Subject Code</label>
+                    <select class="form-control" id="usert" name="usert">
+                    <option value="" disabled selected>Choose an option</option>
+                        <option value="1">101</option>
+                        <option value="2">102</option>
+                        <option value="3">103</option>
+                        <option value="3">104</option>
+                        <option value="3">105</option>
+                        <option value="3">106</option>
+                    </select>
+                </div>
 
 
                     <div class="mb-3">
