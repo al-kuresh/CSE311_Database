@@ -35,6 +35,7 @@
                 <div class="mb-3">
                     <label class="form-label">User Type</label>
                     <select class="form-control" id="usert" name="usert">
+                    <option value="" disabled selected>Choose an option</option>
                         <option value="1">Admin</option>
                         <option value="2">Student</option>
                         <option value="3">Teacher</option>
