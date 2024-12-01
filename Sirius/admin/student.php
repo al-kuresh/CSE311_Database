@@ -7,6 +7,21 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
         include "../admin/data/students.php";
         include "../admin/data/class.php";
 
+        if (isset($_GET['delete_id'])) {
+            $student_id = $_GET['delete_id'];
+
+
+            if (deleteStudent($student_id, $conct)) {
+                $sm = "Student deleted successfully";
+                header("Location: student.php?success=" . urlencode($sm));
+                exit;
+            } else {
+                $em = "Error occurred while deleting the student";
+                header("Location: student.php?error=" . urlencode($em));
+                exit;
+            }
+        }
+
 
         $students = getAllStudents($conct);
     }
@@ -43,7 +58,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                             <a class="nav-link" aria-current="page" href="index.php">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">Teachers</a>
+                            <a class="nav-link" aria-current="page" href="teacher.php">Teacher</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Students</a>
@@ -105,8 +120,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                                 <td><?= htmlspecialchars($student['class_code']) ?></td>
                                 <td><?= htmlspecialchars($student['Address']) ?></td>
                                 <td>
-                                    <a href="editStudent.php?id=<?= $student['student_id'] ?>" class="btn btn-dark">Edit</a>
-                                    <a href="deleteStudent.php?id=<?= $student['student_id'] ?>" class="btn btn-danger">Delete</a>
+                                    <a href="edit_student.php?student_id=<?= $student['student_id'] ?>"
+                                        class="btn btn-dark">Edit</a>
+                                    <a href="?delete_id=<?= $student['student_id'] ?>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>
