@@ -63,7 +63,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 <i class="fa fa-graduation-cap" aria-hidden="true"></i><br>
                 Students
             </a>
-            <a href="#" class="col btn btn-dark m-2 py-3">
+            <a href="class.php" class="col btn btn-dark m-2 py-3">
                 <i class="fa fa-leanpub" aria-hidden="true"></i><br>
                 Class
             </a>
