@@ -87,6 +87,10 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 <a href="addStudent.php" class="add-teacher-btn">
                     Add New Student
                 </a>
+                </a>
+                <a href="students_payment.php" class="add-teacher-btn">
+                    Payments of Students
+                </a>
             </div>
 
             <?php if (isset($_GET['error'])) { ?>

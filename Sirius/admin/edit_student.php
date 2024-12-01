@@ -3,11 +3,10 @@ session_start();
 $admin_id = $_SESSION['f_name'] ?? 'Guest';
 if (isset($_SESSION['admin_id']) && ($_SESSION['usert'] == '1') && isset($_GET['student_id'])) {
     include "../dbConnection.php";
-    include "../admin/data/students.php"; // Include the students data file
-    include "../admin/data/class.php"; // Include the class data file if needed
-
+    include "../admin/data/students.php";
+    include "../admin/data/class.php";
     $student_id = $_GET['student_id'];
-    $student = getStudentById($student_id, $conct); // Fetch student data by ID
+    $student = getStudentById($student_id, $conct);
     if ($student == 0) {
         $_GET['error'] = 'Student not found.';
         header("Location: student.php ");
