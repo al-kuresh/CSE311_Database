@@ -62,57 +62,23 @@ if (isset($_SESSION['student_id']) && isset($_SESSION['usert'])) {
     <link rel="stylesheet" type="text/css" href="..\Css\Front.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <style>
-        .card {
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #343a40;
-        }
-
-        .list-group-item {
-            background-color: #ffffff;
-            border: none;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .list-group-item:last-child {
-            border-bottom: none;
-        }
-
-        .btn-dark {
-            background-color: #343a40;
-            border: none;
-        }
-
-        .btn-dark:hover {
-            background-color: #23272b;
-        }
-    </style>
 </head>
 
 
-<body class="admin_home">
-
+<body class="student_home">
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Student Information</h2>
+        <h1 class="text-center mb-4" style="color: white;">Student Information</h1>
         <div class="row">
             <div class="col-md-4 text-center">
                 <img src="/images/<?php echo htmlspecialchars($student['profile_picture']); ?>" alt="Profile Picture"
-                    class="img-fluid rounded-circle" style="max-width: 200px; max-height: 200px;">
+                    class="profile-picture">
             </div>
             <div class="col-md-8">
-                <div class="card">
+                <div class="card student-card">
+                    <div class="card-header">Details for Student ID:
+                        <?php echo htmlspecialchars($student['student_id']); ?>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">Details for Student ID:
-                            <?php echo htmlspecialchars($student['student_id']); ?>
-                        </h5>
                         <ul class="list-group">
                             <li class="list-group-item"><strong>First Name:</strong>
                                 <?php echo htmlspecialchars($student['f_name']); ?></li>
@@ -140,15 +106,15 @@ if (isset($_SESSION['student_id']) && isset($_SESSION['usert'])) {
             </div>
         </div>
 
-
         <div class="text-center mt-4">
-            <a href="../logout.php" class="btn btn-dark m-2 py-3">
-                <i class="fa fa-sign-out" aria-hidden="true"></i><br>
-                Logout
+            <a href="../logout.php" class="btn logout-btn">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
+            </a>
+            <a href="edit_info_stud.php" class="btn logout-btn">
+                <i class="fa fa-edit" aria-hidden="true"></i> Edit
             </a>
         </div>
     </div>
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
