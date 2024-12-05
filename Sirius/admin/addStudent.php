@@ -105,43 +105,18 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert']) && ($_SESSION['use
 
                     <div class="mb-3">
                         <label class="form-label">Address</label>
-                        <input type="text" class="form-control" value="<?= $Address ?>" name="Address">
+                        <input type="text" class="form-control" value="<?= htmlspecialchars($Address) ?>" name="Address">
                     </div>
 
                     <div class="mb-3">
-                    <label class="form-label">Class Code</label>
-                    <select class="form-control" id="usert" name="usert">
-                    <option value="" disabled selected>Choose an option</option>
-                        <option value="1">9Bio</option>
-                        <option value="2">9Chem</option>
-                        <option value="3">9Ict</option>
-                        <option value="4">9Math</option>
-                        <option value="5">9Phy</option>
-                        <option value="6">9Eng</option>
-                        <option value="7">10Bio</option>
-                        <option value="8">10Chem</option>
-                        <option value="9">10Ict</option>
-                        <option value="10">10Math</option>
-                        <option value="11">10Phy</option>
-                        <option value="12">10Eng</option>
-                        <option value="13">11Bio</option>
-                        <option value="14">11Chem</option>
-                        <option value="15">11Ict</option>
-                        <option value="16">11Math</option>
-                        <option value="17">11Phy</option>
-                        <option value="18">11Eng</option>
-                        <option value="19">12Bio</option>
-                        <option value="20">12Chem</option>
-                        <option value="21">12Ict</option>
-                        <option value="22">12Math</option>
-                        <option value="23">12Phy</option>
-                        <option value="24">12Eng</option>
-                    </select>
-                </div>
+                        <label class="form-label">Class Code</label>
+                        <input type="text" class="form-control" value="<?= $class_code ?>" name="class_code">
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="password"
+                            value="<?= htmlspecialchars($password) ?>">
                     </div>
 
                     <center><button type="submit" class="btn btn-primary">Submit</button></center>

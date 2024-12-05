@@ -39,7 +39,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 '&Address=' . urlencode($address) .
                 '&subject_code=' . urlencode($subject_code) .
                 '&class_code=' . urlencode($class_code);
-            // '&subject=' . urlencode($subject);
+
 
             if (empty($teacher_id)) {
                 $em = "ID is required";

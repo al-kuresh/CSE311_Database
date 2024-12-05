@@ -11,6 +11,7 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
 
             include '../dbConnection.php';
             include "../admin/data/students.php";
+            include "../admin/data/subject.php";
 
             function unameIsUnique($username, $conct)
             {
@@ -34,7 +35,9 @@ if (isset($_SESSION['admin_id']) && isset($_SESSION['usert'])) {
                 '&f_name=' . urlencode($fname) .
                 '&l_name=' . urlencode($lname) .
                 '&Address=' . urlencode($address) .
-                '&class_code=' . urlencode($class_code);
+                '&class_code=' . urlencode($class_code) .
+                '&password=' . urlencode($pass);
+
 
             if (empty($student_id)) {
                 $em = "ID is required";
