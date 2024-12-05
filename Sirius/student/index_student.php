@@ -70,7 +70,7 @@ if (isset($_SESSION['student_id']) && isset($_SESSION['usert'])) {
         <h1 class="text-center mb-4" style="color: white;">Student Information</h1>
         <div class="row">
             <div class="col-md-4 text-center">
-                <img src="/images/<?php echo htmlspecialchars($student['profile_picture']); ?>" alt="Profile Picture"
+                <img src="../image/<?php echo htmlspecialchars($student['profile_picture']); ?>" alt="Profile Picture"
                     class="profile-picture">
             </div>
             <div class="col-md-8">

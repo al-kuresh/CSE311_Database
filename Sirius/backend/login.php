@@ -68,6 +68,12 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["user
                 header("Location: ../student/index_student.php");
                 exit;
             }
+            if ($type == '3') {
+                $id = $userRow["teacher_id"];
+                $_SESSION['teacher_id'] = $id;
+                header("Location: ../teacher/index_teacher.php");
+                exit;
+            }
 
 
         } else {

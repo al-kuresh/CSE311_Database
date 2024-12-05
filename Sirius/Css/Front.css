@@ -5,7 +5,8 @@
   background-attachment: fixed;
 }
 
-.student_home {
+.student_home,
+.teacher_home {
   background: url(../image/student.webp);
   background-size: cover;
   background-attachment: fixed;
@@ -224,14 +225,18 @@ n-table {
   color: #333;
 }
 
-.student-card {
+.student-card,
+.teacher-card,
+.class-card {
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
   border: 1px solid #dee2e6;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.student-card .card-header {
+.student-card .card-header,
+.teacher-card .card-header,
+.class-card .card-header {
   background-color: #6c757d;
   color: white;
   font-weight: bold;

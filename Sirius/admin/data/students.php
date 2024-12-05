@@ -75,4 +75,35 @@ function deleteStudent($student_id, $conct)
     return $stmt->execute([$student_id]);
 }
 
+function getStudents($conct)
+{
+    $sql = "SELECT 
+        student.student_id,
+        student.f_name,
+        student.l_name,
+        student.username,
+        student.Address,
+        student.class_code,
+        student_profiles.profile_picture,
+        class.class_name 
+
+    FROM 
+        student
+    LEFT JOIN 
+        student_profiles ON student.student_id = student_profiles.student_id
+    LEFT JOIN 
+        class ON student.class_code = class.class_code 
+    ORDER BY 
+        student.student_id";
+
+    $stmt = $conct->prepare($sql);
+    $stmt->execute();
+
+    if ($stmt->rowCount() >= 1) {
+        $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $students;
+    } else {
+        return 0;
+    }
+}
 ?>
