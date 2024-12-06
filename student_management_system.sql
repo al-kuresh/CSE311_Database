@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2024 at 07:13 PM
+-- Generation Time: Dec 06, 2024 at 10:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -55,38 +55,39 @@ CREATE TABLE `class` (
   `class_code` varchar(255) NOT NULL,
   `Days` varchar(50) DEFAULT NULL,
   `teacher's_Payment` decimal(10,2) DEFAULT NULL,
-  `class_time` varchar(16) DEFAULT NULL
+  `class_time` varchar(16) DEFAULT NULL,
+  `student_payment` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `class`
 --
 
-INSERT INTO `class` (`class_name`, `class_code`, `Days`, `teacher's_Payment`, `class_time`) VALUES
-(10, '10Bio', 'Tuesday', 5000.00, '04:30 -05:45 pm'),
-(10, '10Chem', 'Tuesday', 5000.00, '08:00-09:15 am'),
-(10, '10Eng', 'Sunday', 4000.00, '06:00-07:00 pm'),
-(10, '10Ict', 'Tuesday', 4000.00, '06:00-07:00 pm'),
-(10, '10Math', 'Sunday', 5000.00, '04:30-05:45 pm'),
-(10, '10Phy', 'Sunday', 5000.00, '08:00-09:15 am'),
-(11, '11Bio', 'Monday', 6000.00, '04:30-05:45 pm'),
-(11, '11Chem', 'Monday', 6000.00, '08:00-09:15 am'),
-(11, '11Eng', 'Monday', 5000.00, '06:00-07:00 pm'),
-(11, '11Ict', 'Wednesday', 5000.00, '06:00-07:00 pm'),
-(11, '11Math', 'Wednesday', 6000.00, '08:00-09:15 am'),
-(11, '11Phy', 'Wednesday', 6000.00, '04:30-05:45 pm'),
-(12, '12Bio', 'Sunday', 6000.00, '12:00-01:00 pm'),
-(12, '12Chem', 'Sunday', 6000.00, '01:15-02:15 pm'),
-(12, '12Eng', 'Sunday', 5000.00, '07:00-08:00 am'),
-(12, '12Ict', 'Monday', 5000.00, '07:00-08:00am'),
-(12, '12Math', 'Monday', 6000.00, '12:00-01:00 pm'),
-(12, '12Phy', 'Monday', 6000.00, '01:15-02:15 pm'),
-(9, '9Bio', 'Thursday', 5000.00, '04:30-05:45 pm'),
-(9, '9Chem', 'Thursday', 5000.00, '08:00-09:15 am'),
-(9, '9Eng', 'Thursday', 4000.00, '07:00-08:00 am'),
-(9, '9Ict', 'Saturday', 4000.00, '04:30-05:45 pm'),
-(9, '9Math', 'Saturday', 5000.00, '08:00-09:15 am'),
-(9, '9Phy', 'Saturday', 5000.00, '07:00-08:00 am');
+INSERT INTO `class` (`class_name`, `class_code`, `Days`, `teacher's_Payment`, `class_time`, `student_payment`) VALUES
+(10, '10Bio', 'Tuesday', 5000.00, '04:30 -05:45 pm', 1200.00),
+(10, '10Chem', 'Tuesday', 5000.00, '08:00-09:15 am', 1200.00),
+(10, '10Eng', 'Sunday', 4000.00, '06:00-07:00 pm', 1200.00),
+(10, '10Ict', 'Tuesday', 4000.00, '06:00-07:00 pm', 1200.00),
+(10, '10Math', 'Sunday', 5000.00, '04:30-05:45 pm', 1200.00),
+(10, '10Phy', 'Sunday', 5000.00, '08:00-09:15 am', 1200.00),
+(11, '11Bio', 'Monday', 6000.00, '04:30-05:45 pm', 1500.00),
+(11, '11Chem', 'Monday', 6000.00, '08:00-09:15 am', 1500.00),
+(11, '11Eng', 'Monday', 5000.00, '06:00-07:00 pm', 1500.00),
+(11, '11Ict', 'Wednesday', 5000.00, '06:00-07:00 pm', 1500.00),
+(11, '11Math', 'Wednesday', 6000.00, '08:00-09:15 am', 1500.00),
+(11, '11Phy', 'Wednesday', 6000.00, '04:30-05:45 pm', 1500.00),
+(12, '12Bio', 'Sunday', 6000.00, '12:00-01:00 pm', 1500.00),
+(12, '12Chem', 'Sunday', 6000.00, '01:15-02:15 pm', 1500.00),
+(12, '12Eng', 'Sunday', 5000.00, '07:00-08:00 am', 1500.00),
+(12, '12Ict', 'Monday', 5000.00, '07:00-08:00am', 1500.00),
+(12, '12Math', 'Monday', 6000.00, '12:00-01:00 pm', 1500.00),
+(12, '12Phy', 'Monday', 6000.00, '01:15-02:15 pm', 1500.00),
+(9, '9Bio', 'Thursday', 5000.00, '04:30-05:45 pm', 1000.00),
+(9, '9Chem', 'Thursday', 5000.00, '08:00-09:15 am', 1000.00),
+(9, '9Eng', 'Thursday', 4000.00, '07:00-08:00 am', 1000.00),
+(9, '9Ict', 'Saturday', 4000.00, '04:30-05:45 pm', 1000.00),
+(9, '9Math', 'Saturday', 5000.00, '08:00-09:15 am', 1000.00),
+(9, '9Phy', 'Saturday', 5000.00, '07:00-08:00 am', 1000.00);
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`username`, `password`, `f_name`, `l_name`, `student_id`, `class_code`, `Address`, `class_name`) VALUES
-('samir', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Shamir', 'onanto', 1, '10Phy', 'DIT, Narayangonj', 10),
+('samir', '$2y$10$xRe2DtQt1MFmsC.a0bQWtee11MBimoUrlwYIddoe854kr0KWvDiK6', 'Shamir', 'onanto', 1, '10Phy', 'DIT, Narayangonj', 10),
 ('radi', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Radi', 'Yan', 2, '10Phy', 'Bandar, Narayangonj', 10),
 ('abhi', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abhisekh', 'Ujjol', 3, '11Chem', 'Bashundhara R/A, Dhaka', 11),
 ('sur', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Surja', 'Adham', 4, '10Math', 'Bashundhara R/A, Dhaka', 10),
@@ -140,6 +141,24 @@ INSERT INTO `student` (`username`, `password`, `f_name`, `l_name`, `student_id`,
 ('jahn', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Jahan', 'Nahin', 28, '10Bio', 'Badda, Dhaka', 10),
 ('abd', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Abid', 'Pasha', 29, '10Eng', 'Dhanmondi, Dhaka', 10),
 ('saima', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Saima', 'Abedin', 30, '11Chem', 'Uttara, Dhaka', 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_profiles`
+--
+
+CREATE TABLE `student_profiles` (
+  `student_id` int(11) NOT NULL,
+  `profile_picture` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student_profiles`
+--
+
+INSERT INTO `student_profiles` (`student_id`, `profile_picture`) VALUES
+(1, '45f13ce4f214bf4f18d707886a3036b2.jpg');
 
 -- --------------------------------------------------------
 
@@ -198,6 +217,24 @@ INSERT INTO `teacher` (`teacher_id`, `username`, `password`, `f_name`, `l_name`,
 (9, 'nafis', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Nafis', 'Nadim', 101, '9Phy', 'Palashi, Dhaka'),
 (10, 'rIfat', '$2b$12$0gXzSYA5m4ZWGHx85O.9N.sKfQx.kDg6p3vPdkvFktUFxFNFqUR7W', 'Mahmudul Hasa', 'Rifat', 103, '10Math', 'Panthapath,Dhaka');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher_profiles`
+--
+
+CREATE TABLE `teacher_profiles` (
+  `teacher_id` int(11) NOT NULL,
+  `profile_picture` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `teacher_profiles`
+--
+
+INSERT INTO `teacher_profiles` (`teacher_id`, `profile_picture`) VALUES
+(4, 'male_teacher.webp');
+
 --
 -- Indexes for dumped tables
 --
@@ -220,7 +257,14 @@ ALTER TABLE `class`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`student_id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `fk_class` (`class_code`);
+
+--
+-- Indexes for table `student_profiles`
+--
+ALTER TABLE `student_profiles`
+  ADD PRIMARY KEY (`student_id`);
 
 --
 -- Indexes for table `teacher`
@@ -229,6 +273,12 @@ ALTER TABLE `teacher`
   ADD PRIMARY KEY (`teacher_id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD KEY `fk_class_code` (`class_code`);
+
+--
+-- Indexes for table `teacher_profiles`
+--
+ALTER TABLE `teacher_profiles`
+  ADD PRIMARY KEY (`teacher_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -251,10 +301,28 @@ ALTER TABLE `teacher`
 --
 
 --
+-- Constraints for table `student`
+--
+ALTER TABLE `student`
+  ADD CONSTRAINT `fk_class` FOREIGN KEY (`class_code`) REFERENCES `class` (`class_code`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `student_profiles`
+--
+ALTER TABLE `student_profiles`
+  ADD CONSTRAINT `student_profiles_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`);
+
+--
 -- Constraints for table `teacher`
 --
 ALTER TABLE `teacher`
   ADD CONSTRAINT `fk_class_code` FOREIGN KEY (`class_code`) REFERENCES `class` (`class_code`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `teacher_profiles`
+--
+ALTER TABLE `teacher_profiles`
+  ADD CONSTRAINT `teacher_profiles_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`teacher_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
