@@ -78,13 +78,7 @@ function deleteStudent($student_id, $conct)
 function getStudents($conct)
 {
     $sql = "SELECT 
-        student.student_id,
-        student.f_name,
-        student.l_name,
-        student.username,
-        student.Address,
-        student.class_code,
-        student_profiles.profile_picture,
+        student.student_id,student.f_name,student.l_name,student.username,student.Address,student.class_code,student_profiles.profile_picture,
         class.class_name 
 
     FROM 

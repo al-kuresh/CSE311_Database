@@ -56,13 +56,7 @@ function getTeachersID($teacher_id, $conct)
 function getTeachers($conct)
 {
     $sql = "SELECT 
-        teacher.teacher_id,
-        teacher.f_name,
-        teacher.l_name,
-        teacher.username,
-        teacher.Address,
-        teacher.class_code,
-        teacher_profiles.profile_picture,
+        teacher.teacher_id,teacher.f_name,teacher.l_name,teacher.username,teacher.Address,teacher.class_code,teacher_profiles.profile_picture,
         class.class_name 
 
     FROM 
